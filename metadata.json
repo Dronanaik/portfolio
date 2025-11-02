@@ -37,6 +37,12 @@
   ],
   "projects": [
     {
+      "name": "Dominance Pattern Classifier",
+      "description": "A React-based Machine Learning application that classifies genetic inheritance patterns using a custom Decision Tree algorithm. The application can classify three types of dominance patterns",
+      "techStack": ["React 18", "Tailwind CSS", "Recharts","Lucide React","Decision Tree ML algorith"],
+      "githubLink": "https://github.com/Dronanaik/dominance-classifier"
+    },
+    {
       "name": "Playwright Agent",
       "description": "End-to-end browser automation agents built with Playwright and ADK for testing and automation.",
       "techStack": ["Playwright", "TypeScript", "ADK"],
