@@ -1,0 +1,113 @@
+{
+  "about": {
+    "name": "I'm Drona",
+    "title": "Analyst - KPMG",
+    "description": "Passionate about Full‑stack development, Artificial Intelligence, Machine Learning, and Agentic AI.",
+    "profilePhoto": "../assets/profile.png"
+  },
+  "experience": [
+    {
+      "title": "Analyst",
+      "company": "KPMG",
+      "duration": "Aug 2025 – Present",
+      "description": "Currently working on an Agentic AI solution using the Google ADK Framework."
+    },
+    {
+      "title": "Tech Consulting Intern",
+      "company": "KPMG",
+      "duration": "Jan 2025 – Jul 2025",
+      "description": "Completed Java full‑stack training and contributed to client projects. Learned Java, Angular, SQL, TypeScript, Git, and GitHub."
+    }
+  ],
+  "education": [
+    {
+      "institution": "University Of Visvesvaraya College Of Engineering",
+      "degree": "B.Tech in Artificial Intelligence and Machine Learning",
+      "cgpa": "8.75",
+      "duration": "Jan 2021 – Aug 2025",
+      "location": "Bengaluru, India"
+    },
+    {
+      "institution": "Akshara PU College",
+      "degree": "PUC - PCMB",
+      "percentage": "95.1%",
+      "duration": "Jun 2019 – Jul 2021",
+      "location": "Shikaripur, Karnataka"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Playwright Agent",
+      "description": "End-to-end browser automation agents built with Playwright and ADK for testing and automation.",
+      "techStack": ["Playwright", "TypeScript", "ADK"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/PlaywrightAgent"
+    },
+    {
+      "name": "Streamlit Code-Gen Agent",
+      "description": "A Streamlit app that provides code generation agents backed by Google ADK.",
+      "techStack": ["Streamlit", "Python", "ADK"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/Streamlit-Code-Gen-agent"
+    },
+    {
+      "name": "Crawl4AI Agent",
+      "description": "Web crawling agent to collect and prepare data for downstream AI tasks.",
+      "techStack": ["Python", "Scrapy/Requests", "ADK"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/crawl4AI-agent"
+    },
+    {
+      "name": "Financial MCP Agent",
+      "description": "Agent designed for financial data workflows and connectors (MCP integrations).",
+      "techStack": ["Python", "Finance", "MCP"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/financial-mcp-agent"
+    },
+    {
+      "name": "Job Search Agent",
+      "description": "Agent to automate job discovery and candidate-job matching workflows.",
+      "techStack": ["Python", "Scraping", "NLP"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/job_search_agent"
+    },
+    {
+      "name": "MCP Agent (ADK)",
+      "description": "A collection of agents and adapters built on top of Google ADK for MCP scenarios.",
+      "techStack": ["TypeScript", "ADK", "MCP"],
+      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/mcp-agent-adk"
+    },
+    {
+      "name": "Streamlit App",
+      "description": "Standalone Streamlit utilities and demos showcasing ML and data apps.",
+      "techStack": ["Streamlit", "Python"],
+      "githubLink": "https://github.com/Dronanaik/streamlit-app"
+    },
+    {
+      "name": "Angular Projects",
+      "description": "Angular demo apps and templates used during full-stack training.",
+      "techStack": ["Angular", "TypeScript"],
+      "githubLink": "https://github.com/Dronanaik/angular"
+    },
+    {
+      "name": "ML Programs",
+      "description": "Machine learning experiments, notebooks, and training scripts.",
+      "techStack": ["Python", "scikit-learn", "TensorFlow/PyTorch"],
+      "githubLink": "https://github.com/Dronanaik/ml-programs"
+    },
+    {
+      "name": "Digital Image Processing",
+      "description": "Image processing algorithms and projects implemented for coursework and demos.",
+      "techStack": ["Python", "OpenCV", "NumPy"],
+      "githubLink": "https://github.com/Dronanaik/digital-image-processing-programs"
+    },
+    {
+      "name": "AI Programs",
+      "description": "Various AI utilities, scripts, and toy projects exploring models and agents.",
+      "techStack": ["Python", "AI"],
+      "githubLink": "https://github.com/Dronanaik/ai_programs"
+    }
+  ],
+  "socialMedia": {
+    "linkedin": "https://www.linkedin.com/in/drona-l",
+    "github": "https://github.com/Dronanaik",
+    "instagram": "https://www.instagram.com/spotter_naik/",
+    "twitter": "https://x.com/drona_l"
+  }
+}
+
