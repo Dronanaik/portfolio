@@ -87,7 +87,7 @@
     {
       "name": "Angular Projects",
       "description": "Angular demo apps and templates used during full-stack training.",
-      "techStack": ["Angular", "TypeScript"],
+      "techStack": ["Angular", "Java"],
       "githubLink": "https://github.com/Dronanaik/angular"
     },
     {
@@ -107,6 +107,12 @@
       "description": "Various AI utilities, scripts, and toy projects exploring models and agents.",
       "techStack": ["Python", "AI"],
       "githubLink": "https://github.com/Dronanaik/ai_programs"
+    }
+    {
+      "name": "Java Backend",
+      "description": "Various Java backend projects,including Controller,Repository,Services and Service Implementation Layers",
+      "techStack": ["Java"],
+      "githubLink": "https://github.com/Dronanaik/java-backend"
     }
   ],
   "socialMedia": {
