@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Drona's Portfolio - Full-stack Developer specializing in AI, ML, and Agentic AI">
     <title>Drona's Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                
+                <h2>Drona</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -20,6 +34,9 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -30,16 +47,21 @@
 
     <!-- Hero/About Section -->
     <section id="about" class="about-section">
+        <canvas class="particle-canvas" id="particle-canvas"></canvas>
         <div class="container">
             <div class="about-content">
-                <div class="profile-image">
-                    <img id="profile-photo" src="" alt="Drona" class="profile-img">
+                <div class="profile-image" data-scroll-reveal>
+                    <div class="profile-glow"></div>
+                    <img id="profile-photo" src="" alt="Drona" class="profile-img" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <h1 class="name" id="name">Drona</h1>
-                    <h2 class="title" id="title">Analyst</h2>
-                    <p class="description" id="description"></p>
-                    <div class="social-links" id="social-links">
+                    <h1 class="name" id="name" data-scroll-reveal>Drona</h1>
+                    <h2 class="title" id="title" data-scroll-reveal>
+                        <span class="typing-text">Analyst</span>
+                        <span class="cursor">|</span>
+                    </h2>
+                    <p class="description" id="description" data-scroll-reveal></p>
+                    <div class="social-links" id="social-links" data-scroll-reveal>
                         <!-- Social media links will be populated by JS -->
                     </div>
                 </div>
@@ -84,209 +106,362 @@
         </div>
     </footer>
 
-    <script >// Fetch metadata and render portfolio
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch('../metadata.json');
-        const data = await response.json();
-        
+    <script>// Fetch metadata and render portfolio
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('../metadata.json');
+                const data = await response.json();
+
+                // Render About Section
+                renderAbout(data.about);
+
+                // Render Social Media Links
+                renderSocialLinks(data.socialMedia);
+
+                // Render Experience
+                renderExperience(data.experience);
+
+                // Render Projects
+                renderProjects(data.projects);
+
+                // Render Education
+                renderEducation(data.education);
+
+                // Setup Navigation
+                setupNavigation();
+
+                // Initialize theme
+                initializeTheme();
+
+                // Initialize particle animation
+                initializeParticles();
+
+                // Initialize scroll animations
+                initializeScrollAnimations();
+
+                // Initialize typing animation
+                initializeTypingAnimation();
+
+                // Initialize scroll progress
+                initializeScrollProgress();
+
+            } catch (error) {
+                console.error('Error fetching metadata:', error);
+            }
+        });
+
         // Render About Section
-        renderAbout(data.about);
-        
+        function renderAbout(about) {
+            document.getElementById('name').textContent = about.name;
+            const titleText = about.title;
+            document.querySelector('.typing-text').setAttribute('data-text', titleText);
+            document.getElementById('description').textContent = about.description;
+            const profileImg = document.getElementById('profile-photo');
+            // Use WebP optimized image
+            profileImg.src = about.profilePhoto.replace('.png', '.webp');
+            profileImg.onerror = function () {
+                // Fallback to PNG if WebP doesn't load
+                this.src = about.profilePhoto;
+            };
+        }
+
         // Render Social Media Links
-        renderSocialLinks(data.socialMedia);
-        
-        // Render Experience
-        renderExperience(data.experience);
-        
-        // Render Projects
-        renderProjects(data.projects);
-        
-        // Render Education
-        renderEducation(data.education);
-        
-        // Setup Navigation
-        setupNavigation();
-        
-    } catch (error) {
-        console.error('Error fetching metadata:', error);
-    }
-});
+        function renderSocialLinks(socialMedia) {
+            const socialLinksContainer = document.getElementById('social-links');
+            socialLinksContainer.innerHTML = '';
 
-// Render About Section
-function renderAbout(about) {
-    document.getElementById('name').textContent = about.name;
-    document.getElementById('title').textContent = about.title;
-    document.getElementById('description').textContent = about.description;
-    const profileImg = document.getElementById('profile-photo');
-    profileImg.src = about.profilePhoto;
-    profileImg.onerror = function() {
-        // Fallback if image doesn't load
-        this.style.display = 'none';
-    };
-}
+            const socialLinks = [
+                { name: 'LinkedIn', url: socialMedia.linkedin, icon: 'fab fa-linkedin' },
+                { name: 'GitHub', url: socialMedia.github, icon: 'fab fa-github' },
+                { name: 'Instagram', url: socialMedia.instagram, icon: 'fab fa-instagram' },
+                { name: 'Twitter', url: socialMedia.twitter, icon: 'fab fa-twitter' }
+            ];
 
-// Render Social Media Links
-function renderSocialLinks(socialMedia) {
-    const socialLinksContainer = document.getElementById('social-links');
-    socialLinksContainer.innerHTML = '';
-    
-    const socialLinks = [
-        { name: 'LinkedIn', url: socialMedia.linkedin, icon: 'fab fa-linkedin' },
-        { name: 'GitHub', url: socialMedia.github, icon: 'fab fa-github' },
-        { name: 'Instagram', url: socialMedia.instagram, icon: 'fab fa-instagram' },
-        { name: 'Twitter', url: socialMedia.twitter, icon: 'fab fa-twitter' }
-    ];
-    
-    socialLinks.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.url.startsWith('http') ? link.url : `https://${link.url}`;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.setAttribute('aria-label', link.name);
-        
-        const i = document.createElement('i');
-        i.className = link.icon;
-        
-        a.appendChild(i);
-        socialLinksContainer.appendChild(a);
-    });
-}
+            socialLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.url.startsWith('http') ? link.url : `https://${link.url}`;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.setAttribute('aria-label', link.name);
 
-// Render Experience Section
-function renderExperience(experience) {
-    const experienceContainer = document.getElementById('experience-list');
-    experienceContainer.innerHTML = '';
-    
-    experience.forEach(exp => {
-        const experienceItem = document.createElement('div');
-        experienceItem.className = 'experience-item';
-        
-        experienceItem.innerHTML = `
+                const i = document.createElement('i');
+                i.className = link.icon;
+
+                a.appendChild(i);
+                socialLinksContainer.appendChild(a);
+            });
+        }
+
+        // Render Experience Section
+        function renderExperience(experience) {
+            const experienceContainer = document.getElementById('experience-list');
+            experienceContainer.innerHTML = '';
+
+            experience.forEach(exp => {
+                const experienceItem = document.createElement('div');
+                experienceItem.className = 'experience-item';
+                experienceItem.setAttribute('data-scroll-reveal', '');
+
+                experienceItem.innerHTML = `
             <h3>${exp.title}</h3>
             <div class="company">${exp.company}</div>
             <div class="duration">${exp.duration}</div>
             <p class="description">${exp.description}</p>
         `;
-        
-        experienceContainer.appendChild(experienceItem);
-    });
-}
 
-// Render Projects Section
-function renderProjects(projects) {
-    const projectsContainer = document.getElementById('projects-list');
-    projectsContainer.innerHTML = '';
-    
-    projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        
-        // Create tech stack tags
-        const techStackHTML = project.techStack.map(tech => 
-            `<span class="tech-tag">${tech}</span>`
-        ).join('');
-        
-        projectCard.innerHTML = `
+                experienceContainer.appendChild(experienceItem);
+            });
+        }
+
+        // Render Projects Section
+        function renderProjects(projects) {
+            const projectsContainer = document.getElementById('projects-list');
+            projectsContainer.innerHTML = '';
+
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+                projectCard.setAttribute('data-scroll-reveal', '');
+
+                // Create tech stack tags
+                const techStackHTML = project.techStack.map(tech =>
+                    `<span class="tech-tag">${tech}</span>`
+                ).join('');
+
+                projectCard.innerHTML = `
             <h3>${project.name}</h3>
             <p class="description">${project.description}</p>
             <div class="tech-stack">
                 ${techStackHTML}
             </div>
         `;
-        
-        // Add click event to navigate to GitHub
-        projectCard.addEventListener('click', () => {
-            window.open(project.githubLink, '_blank', 'noopener,noreferrer');
-        });
-        
-        projectsContainer.appendChild(projectCard);
-    });
-}
 
-// Render Education Section
-function renderEducation(education) {
-    const educationContainer = document.getElementById('education-list');
-    educationContainer.innerHTML = '';
-    
-    education.forEach(edu => {
-        const educationItem = document.createElement('div');
-        educationItem.className = 'education-item';
-        
-        const detailsHTML = [];
-        if (edu.cgpa) {
-            detailsHTML.push(`CGPA: ${edu.cgpa}`);
+                // Add click event to navigate to GitHub
+                projectCard.addEventListener('click', () => {
+                    window.open(project.githubLink, '_blank', 'noopener,noreferrer');
+                });
+
+                projectsContainer.appendChild(projectCard);
+            });
         }
-        if (edu.percentage) {
-            detailsHTML.push(`Percentage: ${edu.percentage}`);
-        }
-        
-        educationItem.innerHTML = `
+
+        // Render Education Section
+        function renderEducation(education) {
+            const educationContainer = document.getElementById('education-list');
+            educationContainer.innerHTML = '';
+
+            education.forEach(edu => {
+                const educationItem = document.createElement('div');
+                educationItem.className = 'education-item';
+                educationItem.setAttribute('data-scroll-reveal', '');
+
+                const detailsHTML = [];
+                if (edu.cgpa) {
+                    detailsHTML.push(`CGPA: ${edu.cgpa}`);
+                }
+                if (edu.percentage) {
+                    detailsHTML.push(`Percentage: ${edu.percentage}`);
+                }
+
+                educationItem.innerHTML = `
             <h3>${edu.institution}</h3>
             <div class="degree">${edu.degree}</div>
             ${detailsHTML.length > 0 ? `<div class="details">${detailsHTML.join(' · ')}</div>` : ''}
             <div class="duration">${edu.duration}</div>
             <div class="location">${edu.location}</div>
         `;
-        
-        educationContainer.appendChild(educationItem);
-    });
-}
 
-// Setup Navigation
-function setupNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Mobile menu toggle
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                educationContainer.appendChild(educationItem);
+            });
+        }
+
+        // Setup Navigation
+        function setupNavigation() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            // Mobile menu toggle
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
                 });
-                
-                // Close mobile menu if open
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                        // Close mobile menu if open
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Add active class to current section in navigation
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const sections = document.querySelectorAll('section[id]');
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Initialize Theme Toggle
+        function initializeTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+
+            // Set initial theme
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        // Initialize Particle Animation
+        function initializeParticles() {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 50;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+                draw() {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
                 }
             }
-        });
-    });
-    
-    // Add active class to current section in navigation
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const sections = document.querySelectorAll('section[id]');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
 
-</script>
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Initialize Scroll Animations
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize Typing Animation
+        function initializeTypingAnimation() {
+            const typingElement = document.querySelector('.typing-text');
+            if (!typingElement) return;
+
+            const text = typingElement.getAttribute('data-text') || typingElement.textContent;
+            typingElement.textContent = '';
+            let index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    typingElement.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            setTimeout(type, 500);
+        }
+
+        // Initialize Scroll Progress
+        function initializeScrollProgress() {
+            const progressBar = document.getElementById('scroll-progress');
+
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        }
+
+    </script>
 </body>
-</html>
 
+</html>
