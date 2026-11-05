@@ -1,14 +1,14 @@
 {
   "site": {
     "title": "Drona L",
-    "subtitle": "Associate Consultant – Agentic AI & RAG | KPMG",
+    "subtitle": "Associate Consultant | KPMG",
     "Skin": "contrast",
     "resumePdf": "./assets/Drona_L_Resume.pdf"
   },
   "about": {
     "name": "Drona L",
-    "headline": "Associate Consultant – Agentic AI & RAG @ KPMG",
-    "title": "Associate Consultant – Agentic AI & RAG | KPMG",
+    "headline": "Associate Consultant @ KPMG",
+    "title": "Associate Consultant | KPMG",
     "pronouns": "He/Him",
     "location": "Bengaluru, India",
     "company": "KPMG",
@@ -81,24 +81,9 @@
         "items": ["Pinecone (Vector DB)", "PostgreSQL", "MySQL", "Supabase"]
       },
       {
-        "category": "Testing & Enterprise Integration",
-        "icon": "fas fa-plug",
-        "items": [
-          "Test Automation",
-          "QA Automation",
-          "CI/CD",
-          "REST APIs",
-          "Jira",
-          "Xray",
-          "SAP ECC/S4HANA",
-          "SAP Hybris",
-          "Salesforce"
-        ]
-      },
-      {
         "category": "Developer Tools",
         "icon": "fas fa-tools",
-        "items": ["GitHub", "Git", "VS Code", "PyCharm", "Antigravity"]
+        "items": ["GitHub", "Git", "VS Code", "PyCharm", "Antigravity","Claude Code","Codex"]
       }
     ]
   },
@@ -107,14 +92,13 @@
     "linkedin": "https://www.linkedin.com/in/drona-l",
     "twitter": "https://x.com/drona_l",
     "instagram": "https://www.instagram.com/spotter_naik/",
-    "facebook": "https://www.facebook.com/profile.php?id=61562739004984",
     "email": "mailto:dronanaik1133@gmail.com",
     "phone": "tel:+917022335552"
   },
   "experience": [
     {
       "id": "kpmg-associate-consultant",
-      "title": "Associate Consultant – Agentic AI & RAG",
+      "title": "Associate Consultant",
       "company": "KPMG",
       "location": "Bengaluru, India",
       "duration": "Sep 2026 – Present",
@@ -206,31 +190,6 @@
         "githubLink": "https://github.com/Dronanaik/angular"
       },
       {
-        "id": "google-adk-suite",
-        "name": "Google ADK Multi-Agent Suite",
-        "subtitle": "Enterprise Tool-Augmented Agents & MCP Integrations",
-        "featured": true,
-        "description": "A comprehensive suite of intelligent, tool-augmented agents built using Google's Agent Development Kit (ADK), integrating browser automation, financial analytics, web crawling, and MCP servers.",
-        "highlights": [
-          "Developed autonomous Playwright Browser Automation Agents, Financial MCP Agents, Crawl4AI Web Extraction Agents, and Streamlit Code-Generation Agents.",
-          "Implemented custom Model Context Protocol (MCP) adapters enabling seamless communication between Gemini-powered ADK agents and external services."
-        ],
-        "techStack": ["Google ADK", "Python", "TypeScript", "MCP", "Playwright", "Gemini"],
-        "githubLink": "https://github.com/Dronanaik/google-adk"
-      },
-      {
-        "id": "cms-voice-agent",
-        "name": "CMS Voice Agent",
-        "subtitle": "Conversational Voice-Driven AI Agent",
-        "featured": false,
-        "description": "Real-time voice-enabled AI agent designed to streamline content management workflows and interactive voice-driven task execution.",
-        "highlights": [
-          "Engineered low-latency voice interaction pipelines connecting speech recognition, agentic reasoning, and synthesized responses for hands-free operations."
-        ],
-        "techStack": ["Python", "Voice AI", "Agentic AI", "LLM"],
-        "githubLink": "https://github.com/Dronanaik/cms-voice-agent"
-      },
-      {
         "id": "dominance-classifier",
         "name": "Dominance Pattern Classifier",
         "subtitle": "Interactive Genetic Inheritance ML Web App",
@@ -241,18 +200,6 @@
         ],
         "techStack": ["React 18", "Tailwind CSS", "Recharts", "Lucide React", "Decision Tree ML"],
         "githubLink": "https://github.com/Dronanaik/dominance-classifier"
-      },
-      {
-        "id": "coco-farm-tracker",
-        "name": "Coconut Grove (Coco)",
-        "subtitle": "Bilingual Plantation & Harvest Expense Tracker",
-        "featured": false,
-        "description": "A lightweight agricultural tracker to document coconut plantation progress through a photo gallery and manage harvest expenses with full English and Kannada localization.",
-        "highlights": [
-          "Designed an intuitive mobile-friendly interface supporting bilingual switching (English & Kannada) for accessible farm record management."
-        ],
-        "techStack": ["JavaScript", "HTML5", "CSS3", "i18n (English & Kannada)"],
-        "githubLink": "https://github.com/Dronanaik/coco"
       }
     ],
     "mini": [
@@ -315,19 +262,13 @@
         "description": "Standalone Streamlit web applications and interactive dashboards for rapid ML model prototyping.",
         "techStack": ["Streamlit", "Python"],
         "githubLink": "https://github.com/Dronanaik/streamlit-app"
-      },
-      {
-        "name": "Trip Memories Gallery",
-        "description": "Curated, responsive visual gallery showcasing travel photography and trip stories with smooth CSS layouts.",
-        "techStack": ["HTML5", "CSS3", "Responsive Design"],
-        "githubLink": "https://github.com/Dronanaik/trip-gallery"
       }
     ]
   },
   "blogsIndex": "./blogs/index.json",
   "education": [
     {
-      "institution": "University of Visvesvaraya College of Engineering (UVCE)",
+      "institution": "University of Visvesvaraya College of Engineering",
       "degree": "B.Tech in Artificial Intelligence and Machine Learning",
       "scoreLabel": "CGPA",
       "score": "8.7 / 10 (8.75)",

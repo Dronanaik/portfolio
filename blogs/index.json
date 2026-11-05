@@ -1,53 +1,19 @@
 [
   {
-    "id": "agentic-rag-knowledge-graphs",
-    "title": "Building Citation-Backed Agentic RAG with Google ADK, Pinecone & Knowledge Graphs",
-    "date": "2026-10-15",
-    "displayDate": "October 2026",
-    "readTime": "2 min read",
-    "category": "Agentic AI & RAG",
+    "id": "weight-space-programming-blog",
+    "title": "What If an AI Could Read and Rewrite Its Own Brain?",
+    "date": "2026-11-04",
+    "displayDate": "November 2026",
+    "readTime": "14 min read",
+    "category": "LLM",
     "tags": [
-      "Google ADK",
-      "RAG",
-      "Pinecone",
-      "Knowledge Graphs",
-      "Gemini"
+      "LLMs",
+      "Weight-Space Programming",
+      "Qwen",
+      "Neural Networks",
+      "Model Weights"
     ],
-    "summary": "How combining semantic vector retrieval in Pinecone with entity-relationship Knowledge Graphs transforms standard document Q&A into an explainable, citation-backed enterprise assistant.",
-    "file": "./blogs/2026-10-agentic-rag-knowledge-graphs.md"
-  },
-  {
-    "id": "multi-agent-enterprise-test-automation",
-    "title": "Orchestrating Multi-Agent AI for Enterprise Test Automation (SAP, Salesforce & Jira/Xray)",
-    "date": "2026-08-20",
-    "displayDate": "August 2026",
-    "readTime": "2 min read",
-    "category": "Enterprise AI",
-    "tags": [
-      "Multi-Agent Systems",
-      "Test Automation",
-      "SAP",
-      "Salesforce",
-      "Google ADK"
-    ],
-    "summary": "Lessons learned from architecting multi-agent QA pipelines that bridge LLMs with enterprise systems like SAP ECC/S4HANA, Salesforce, Jira, and Xray.",
-    "file": "./blogs/2026-08-multi-agent-enterprise-test-automation.md"
-  },
-  {
-    "id": "mcp-servers-with-google-adk",
-    "title": "Connecting Google ADK Agents to Custom Model Context Protocol (MCP) Servers",
-    "date": "2026-05-12",
-    "displayDate": "May 2026",
-    "readTime": "1 min read",
-    "category": "Developer Tools",
-    "tags": [
-      "MCP",
-      "Google ADK",
-      "Playwright",
-      "Python",
-      "TypeScript"
-    ],
-    "summary": "A practical guide to extending Google ADK agents with standardized Model Context Protocol (MCP) tools for browser automation and financial data workflows.",
-    "file": "./blogs/2026-05-mcp-servers-with-google-adk.md"
+    "summary": "Exploring MIT CSAIL's research on Weight-Space Programming: using a general-purpose LLM to directly inspect, diagnose, and edit the numerical weights of another neural network.",
+    "file": "./blogs/2026-11-weight-space-programming-blog.md"
   }
 ]

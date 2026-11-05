@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Drona L — Associate Consultant (Agentic AI & RAG) at KPMG. Portfolio featuring Multi-Agent Systems, Google ADK, RAG, Knowledge Graphs, and Full-Stack Engineering." />
-  <title>Drona L — Portfolio | Associate Consultant – Agentic AI & RAG</title>
+    content="Drona L — Associate Consultant at KPMG. Portfolio featuring Multi-Agent Systems, Google ADK, RAG, Knowledge Graphs, and Full-Stack Engineering." />
+  <title>Drona's - Portfolio</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,10 +20,15 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Minimal Mistakes Layout Stylesheet -->
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=2" />
+
+  <!-- Marked.js for full GitHub-Flavored Markdown (GFM) parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
+  <!-- Reading Progress Bar (visible when reading a blog post) -->
+  <div class="reading-progress-bar" id="reading-progress-bar"></div>
   <!-- ========================================================================
        Top Masthead Navigation (Minimal Mistakes .masthead)
        ======================================================================== -->
@@ -31,7 +36,6 @@
     <div class="masthead__inner-wrap">
       <a href="#about" class="site-title" id="site-title-link">
         <span id="masthead-name">Drona L</span>
-        <span class="site-title__badge">Agentic AI &amp; RAG</span>
       </a>
 
       <nav class="greedy-nav" aria-label="Primary Navigation">
@@ -142,7 +146,6 @@
   <footer class="page__footer">
     <div class="page__footer-inner">
       <div>
-        <strong>Drona L</strong> &middot; Associate Consultant – Agentic AI &amp; RAG @ KPMG &middot;
         <span>&copy; 2026 All rights reserved.</span>
       </div>
       <ul class="page__footer-follow" id="footer-links">
@@ -173,7 +176,7 @@
       },
       experience: {
         title: 'Professional Experience',
-        lead: 'Building production-ready Agentic AI, RAG pipelines, and enterprise test automation solutions at KPMG.'
+        lead: 'Building production-ready Agentic AI, RAG pipelines, and Enterprise automation solutions at KPMG.'
       },
       projects: {
         title: 'Projects Archive',
@@ -251,9 +254,8 @@
         { icon: 'fas fa-fw fa-phone', label: about.phone, url: social.phone || `tel:${about.phone}` },
         { icon: 'fab fa-fw fa-github', label: 'GitHub', url: social.github },
         { icon: 'fab fa-fw fa-linkedin', label: 'LinkedIn', url: social.linkedin },
-        { icon: 'fab fa-fw fa-x-twitter', label: 'X (Twitter)', url: social.twitter },
+        { icon: 'fab fa-fw fa-x-twitter', label: '.com', url: social.twitter },
         { icon: 'fab fa-fw fa-instagram', label: 'Instagram', url: social.instagram },
-        { icon: 'fab fa-fw fa-facebook', label: 'Facebook', url: social.facebook },
         { divider: true },
         {
           icon: 'fas fa-fw fa-file-pdf',
@@ -294,7 +296,7 @@
       const links = [
         { label: 'GitHub', icon: 'fab fa-github', url: social.github },
         { label: 'LinkedIn', icon: 'fab fa-linkedin', url: social.linkedin },
-        { label: 'X / Twitter', icon: 'fab fa-x-twitter', url: social.twitter },
+        { label: '.com', icon: 'fab fa-x-twitter', url: social.twitter },
         { label: 'Instagram', icon: 'fab fa-instagram', url: social.instagram },
         { label: 'Email', icon: 'fas fa-envelope', url: social.email }
       ];
@@ -352,6 +354,16 @@
       document.getElementById('breadcrumb-current').textContent = meta.title;
       document.getElementById('page-title').textContent = meta.title;
       document.getElementById('page-lead').textContent = meta.lead;
+
+      // Hide generic archive header when reading an individual blog article
+      const pageHeader = document.querySelector('.page__header');
+      if (pageHeader) {
+        pageHeader.style.display = activeSection === 'blogs' && activeBlogId ? 'none' : '';
+      }
+      const progressBar = document.getElementById('reading-progress-bar');
+      if (progressBar && !(activeSection === 'blogs' && activeBlogId)) {
+        progressBar.style.width = '0%';
+      }
 
       const container = document.getElementById('page-content');
 
@@ -575,7 +587,7 @@
         </div>
 
         <h2 id="mini-projects">
-          <i class="fas fa-th-large"></i> Mini Projects &amp; Specialized Agents (${filteredMini.length})
+          <i class="fas fa-th-large"></i> Mini Projects (${filteredMini.length})
         </h2>
         <p style="color: var(--text-muted); font-size: 0.92rem;">
           Focused agent implementations, MCP servers, computer vision modules, and ML utilities.
@@ -614,7 +626,7 @@
     }
 
     /* ========================================================================
-       4) BLOGS VIEW (Markdown Files in blogs/*.md + Filter, Search & Pagination)
+       4) BLOGS VIEW (GFM Markdown Reader, Tables, Progress Bar & Archive)
        ======================================================================== */
     function stripFrontMatter(mdText) {
       return mdText.replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n?/, '').trim();
@@ -622,6 +634,8 @@
 
     function formatInlineMarkdown(text) {
       return text
+        .replace(/---/g, '&mdash;')
+        .replace(/--/g, '&ndash;')
         .replace(/`([^`]+)`/g, '<code>$1</code>')
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -629,138 +643,128 @@
     }
 
     function parseMarkdownToHTML(md) {
-      const body = stripFrontMatter(md);
-      const lines = body.split(/\r?\n/);
-      const html = [];
-      let inCodeBlock = false;
-      let codeBuffer = [];
-      let listType = null; // 'ul' or 'ol'
+      let body = stripFrontMatter(md);
 
-      const closeList = () => {
-        if (listType) {
-          html.push(`</${listType}>`);
-          listType = null;
-        }
-      };
+      // Only convert space-surrounded " --- " in prose to em-dash (never touch :--- or ---: in tables!)
+      body = body.replace(/ --- /g, ' — ');
 
-      for (let i = 0; i < lines.length; i++) {
-        const rawLine = lines[i];
-        const line = rawLine.trim();
-
-        // Fenced Code Blocks
-        if (line.startsWith('```')) {
-          closeList();
-          if (!inCodeBlock) {
-            inCodeBlock = true;
-            codeBuffer = [];
-          } else {
-            const escapedCode = codeBuffer
-              .join('\n')
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;');
-            html.push(`<pre><code>${escapedCode}</code></pre>`);
-            inCodeBlock = false;
-          }
-          continue;
-        }
-
-        if (inCodeBlock) {
-          codeBuffer.push(rawLine);
-          continue;
-        }
-
-        if (!line) {
-          closeList();
-          continue;
-        }
-
-        // Headings
-        if (line.startsWith('## ')) {
-          closeList();
-          const text = line.replace(/^##\s+/, '');
-          const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-          html.push(`<h2 id="${slug}">${formatInlineMarkdown(text)}</h2>`);
-          continue;
-        }
-
-        if (line.startsWith('### ')) {
-          closeList();
-          const text = line.replace(/^###\s+/, '');
-          const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-          html.push(`<h3 id="${slug}">${formatInlineMarkdown(text)}</h3>`);
-          continue;
-        }
-
-        // Blockquote
-        if (line.startsWith('> ')) {
-          closeList();
-          html.push(`<blockquote>${formatInlineMarkdown(line.replace(/^>\s+/, ''))}</blockquote>`);
-          continue;
-        }
-
-        // Unordered list
-        if (line.startsWith('- ') || line.startsWith('* ')) {
-          if (listType !== 'ul') {
-            closeList();
-            listType = 'ul';
-            html.push('<ul class="archive-card__bullets">');
-          }
-          html.push(`<li>${formatInlineMarkdown(line.replace(/^[-*]\s+/, ''))}</li>`);
-          continue;
-        }
-
-        // Ordered list
-        if (/^\d+\.\s+/.test(line)) {
-          if (listType !== 'ol') {
-            closeList();
-            listType = 'ol';
-            html.push('<ol class="archive-card__bullets">');
-          }
-          html.push(`<li>${formatInlineMarkdown(line.replace(/^\d+\.\s+/, ''))}</li>`);
-          continue;
-        }
-
-        closeList();
-        html.push(`<p>${formatInlineMarkdown(line)}</p>`);
+      let rawHtml = '';
+      if (window.marked && typeof window.marked.parse === 'function') {
+        rawHtml = window.marked.parse(body, { gfm: true, breaks: false });
+      } else {
+        // Multi-line aware GFM fallback parser (supports H1/H2/H3, tables, blockquotes, lists, paragraphs)
+        const blocks = body.split(/\r?\n\s*\r?\n/);
+        rawHtml = blocks
+          .map(block => {
+            const trimmed = block.trim();
+            if (!trimmed) return '';
+            if (trimmed.startsWith('```')) {
+              const code = trimmed.replace(/^```\w*\r?\n?/, '').replace(/\r?\n?```$/, '');
+              return `<pre><code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
+            }
+            if (/^-{3,}$/.test(trimmed)) return '<hr />';
+            if (trimmed.startsWith('# ')) {
+              const t = trimmed.replace(/^#\s+/, '');
+              return `<h1>${formatInlineMarkdown(t)}</h1>`;
+            }
+            if (trimmed.startsWith('## ')) {
+              const t = trimmed.replace(/^##\s+/, '');
+              return `<h2>${formatInlineMarkdown(t)}</h2>`;
+            }
+            if (trimmed.startsWith('### ')) {
+              const t = trimmed.replace(/^###\s+/, '');
+              return `<h3>${formatInlineMarkdown(t)}</h3>`;
+            }
+            if (trimmed.startsWith('>')) {
+              const quoteText = trimmed
+                .split(/\r?\n/)
+                .map(l => l.replace(/^>\s?/, ''))
+                .join(' ');
+              return `<blockquote><p>${formatInlineMarkdown(quoteText)}</p></blockquote>`;
+            }
+            // GFM Pipe Table
+            if (trimmed.includes('|') && trimmed.split(/\r?\n/).length >= 2) {
+              const rows = trimmed.split(/\r?\n/).map(r =>
+                r
+                  .trim()
+                  .replace(/^\||\|$/g, '')
+                  .split('|')
+                  .map(c => c.trim())
+              );
+              if (rows.length >= 2 && rows[1].every(c => /^:?-{2,}:?$/.test(c))) {
+                const headerCells = rows[0].map(c => `<th>${formatInlineMarkdown(c)}</th>`).join('');
+                const bodyRows = rows
+                  .slice(2)
+                  .map(r => `<tr>${r.map(c => `<td>${formatInlineMarkdown(c)}</td>`).join('')}</tr>`)
+                  .join('');
+                return `<table><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table>`;
+              }
+            }
+            // Unordered list
+            if (/^[-*]\s+/m.test(trimmed)) {
+              const items = trimmed
+                .split(/\r?\n(?=[-*]\s+)/)
+                .map(item => `<li>${formatInlineMarkdown(item.replace(/^[-*]\s+/, '').replace(/\r?\n\s*/g, ' '))}</li>`)
+                .join('');
+              return `<ul>${items}</ul>`;
+            }
+            // Ordered list
+            if (/^\d+\.\s+/m.test(trimmed)) {
+              const items = trimmed
+                .split(/\r?\n(?=\d+\.\s+)/)
+                .map(item => `<li>${formatInlineMarkdown(item.replace(/^\d+\.\s+/, '').replace(/\r?\n\s*/g, ' '))}</li>`)
+                .join('');
+              return `<ol>${items}</ol>`;
+            }
+            return `<p>${formatInlineMarkdown(trimmed.replace(/\r?\n/g, ' '))}</p>`;
+          })
+          .join('\n');
       }
 
-      closeList();
-      return html.join('\n');
+      // Add heading IDs for TOC and open external links in new tab
+      const temp = document.createElement('div');
+      temp.innerHTML = rawHtml;
+
+      temp.querySelectorAll('h2, h3').forEach((h, idx) => {
+        const slug = h.textContent
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '');
+        h.id = slug || `article-heading-${idx}`;
+      });
+
+      temp.querySelectorAll('a').forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('http')) {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+
+      return temp.innerHTML;
     }
 
     async function renderBlogsView(container) {
       const blogs = portfolioData.blogs || [];
 
-      // Single Article Reader View (#blogs/<id>)
+      // Single Article Reader View (#blogs/<id>) — Exact GitHub / VS Code .markdown-body preview
       if (activeBlogId) {
         const post = blogs.find(b => b.id === activeBlogId);
         if (post) {
           document.getElementById('breadcrumb-current').textContent = post.title;
           container.innerHTML = `
-            <div style="margin-bottom: 1.25rem;">
+            <div style="margin-bottom: 1rem;">
               <a href="#blogs" class="btn"><i class="fas fa-arrow-left"></i> Back to All Blogs</a>
             </div>
-            <div class="blog-article-view">
-              <div class="blog-meta">
-                <span><i class="far fa-calendar"></i> ${post.displayDate || post.date}</span>
-                <span><i class="far fa-clock"></i> ${post.readTime}</span>
-                <span class="page__taxonomy-item">${post.category}</span>
-              </div>
-              <h2 id="article-overview" style="margin-top: 0.4rem;">${post.title}</h2>
-              <div id="markdown-article-body" style="margin-top: 1.1rem;">
-                <p style="color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Loading article...</p>
-              </div>
-              <div class="tag-list" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
-                ${(post.tags || []).map(t => `<span class="page__taxonomy-item">#${t}</span>`).join('')}
-              </div>
-            </div>
+            <article id="markdown-article-body" class="blog-article-view markdown-body">
+              <p style="color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Loading markdown...</p>
+            </article>
           `;
 
           try {
             let mdText = blogMarkdownCache[post.id];
             if (!mdText && post.file) {
-              const mdRes = await fetch(post.file);
+              const mdRes = await fetch(`${post.file}?t=${Date.now()}`, { cache: 'no-store' });
               if (mdRes.ok) {
                 mdText = await mdRes.text();
                 blogMarkdownCache[post.id] = mdText;
@@ -789,6 +793,7 @@
         const matchesQuery =
           !q ||
           post.title.toLowerCase().includes(q) ||
+          (post.subtitle || '').toLowerCase().includes(q) ||
           (post.summary || '').toLowerCase().includes(q) ||
           (post.tags || []).some(t => t.toLowerCase().includes(q));
         return matchesCat && matchesQuery;
@@ -822,7 +827,7 @@
         </div>
 
         <h2 id="latest-articles">
-          <i class="fas fa-pen-nib"></i> Articles (${filteredBlogs.length})
+          <i class="fas fa-pen-nib"></i> Published Articles (${filteredBlogs.length})
         </h2>
 
         <div class="blog-list">
@@ -833,27 +838,34 @@
                     const targetHref = post.externalUrl ? post.externalUrl : `#blogs/${post.id}`;
                     const targetAttrs = post.externalUrl ? 'target="_blank" rel="noopener noreferrer"' : '';
                     return `
-                  <div class="archive-card">
+                  <article class="blog-card">
                     <div class="blog-meta">
+                      <span class="page__taxonomy-item" style="color: var(--primary-color); font-weight: 600;">
+                        ${post.category}
+                      </span>
                       <span><i class="far fa-calendar-alt"></i> ${post.displayDate || post.date}</span>
                       <span><i class="far fa-clock"></i> ${post.readTime}</span>
-                      <span class="page__taxonomy-item">${post.category}</span>
                     </div>
-                    <h3 id="blog-${post.id}" style="margin-top: 0; margin-bottom: 0.45rem;">
+                    <h3 class="blog-card__title" id="blog-${post.id}">
                       <a href="${targetHref}" ${targetAttrs}>${post.title}</a>
                     </h3>
-                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.9rem;">
+                    ${
+                      post.subtitle
+                        ? `<div class="blog-card__subtitle">${post.subtitle}</div>`
+                        : ''
+                    }
+                    <p class="blog-card__summary">
                       ${post.summary}
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
                       <div class="tag-list">
-                        ${(post.tags || []).map(t => `<span class="page__taxonomy-item">${t}</span>`).join('')}
+                        ${(post.tags || []).map(t => `<span class="page__taxonomy-item">#${t}</span>`).join('')}
                       </div>
                       <a href="${targetHref}" ${targetAttrs} class="btn btn--primary">
-                        ${post.externalUrl ? 'Read External <i class="fas fa-external-link-alt"></i>' : 'Read Article <i class="fas fa-arrow-right"></i>'}
+                        ${post.externalUrl ? 'Read External <i class="fas fa-external-link-alt"></i>' : 'Read Full Article <i class="fas fa-arrow-right"></i>'}
                       </a>
                     </div>
-                  </div>
+                  </article>
                 `;
                   })
                   .join('')
@@ -1252,6 +1264,14 @@
     }
 
     window.addEventListener('scroll', () => {
+      // Update reading progress bar if inside a blog article
+      const progressBar = document.getElementById('reading-progress-bar');
+      if (progressBar && activeSection === 'blogs' && activeBlogId) {
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;
+        progressBar.style.width = `${pct}%`;
+      }
+
       const tocLinks = Array.from(document.querySelectorAll('#toc-menu a'));
       if (!tocLinks.length) return;
 
