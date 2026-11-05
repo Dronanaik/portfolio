@@ -1,125 +1,349 @@
 {
+  "site": {
+    "title": "Drona L",
+    "subtitle": "Associate Consultant – Agentic AI & RAG | KPMG",
+    "Skin": "contrast",
+    "resumePdf": "./assets/Drona_L_Resume.pdf"
+  },
   "about": {
-    "name": "I'm Drona",
-    "title": "Analyst - KPMG",
-    "description": "Passionate about Full‑stack development, Artificial Intelligence, Machine Learning, and Agentic AI.",
-    "profilePhoto": "../assets/profile.png"
+    "name": "Drona L",
+    "headline": "Associate Consultant – Agentic AI & RAG @ KPMG",
+    "title": "Associate Consultant – Agentic AI & RAG | KPMG",
+    "pronouns": "He/Him",
+    "location": "Bengaluru, India",
+    "company": "KPMG",
+    "email": "dronanaik1133@gmail.com",
+    "phone": "+91-7022335552",
+    "profilePhoto": "./assets/profile.webp",
+    "profilePhotoFallback": "./assets/profile.png",
+    "shortBio": "Associate Consultant & AI Engineer building production multi-agent systems, Agentic RAG pipelines, and enterprise test automation with Google ADK & Gemini.",
+    "description": "Associate Consultant and AI engineer with hands-on experience building agentic AI systems, multi-agent pipelines and Retrieval-Augmented Generation (RAG) solutions using the Google Agent Development Kit (ADK), Gemini models, Pinecone and Google Cloud Platform. Experienced in LLM-powered test automation, prompt engineering, knowledge graphs and enterprise integrations (SAP, Salesforce, Jira, Xray), with a strong foundation in machine learning and full-stack development. Delivers production-ready AI applications that solve real-world enterprise problems, from automated test case generation to orchestrated agent-to-agent workflows and citation-backed document Q&A.",
+    "focusAreas": [
+      {
+        "title": "Multi-Agent Systems & Google ADK",
+        "icon": "fas fa-network-wired",
+        "description": "Designing production multi-agent pipelines, inter-agent communication protocols, and custom Model Context Protocol (MCP) tool integrations using Google ADK and Gemini."
+      },
+      {
+        "title": "Agentic RAG & Knowledge Graphs",
+        "icon": "fas fa-project-diagram",
+        "description": "Architecting citation-backed retrieval pipelines with document ingestion, deduplication, Pinecone vector embeddings, and interactive Knowledge Graph extraction."
+      },
+      {
+        "title": "Enterprise QA & Test Orchestration",
+        "icon": "fas fa-vials",
+        "description": "Integrating GenAI and autonomous testing agents with SAP ECC/S4HANA, SAP Hybris, Salesforce, Jira, Xray, and Playwright across CI/CD pipelines."
+      },
+      {
+        "title": "Full-Stack & ML Engineering",
+        "icon": "fas fa-layer-group",
+        "description": "Delivering end-to-end applications using Python, Java Spring Boot, Angular, React, PyTorch, OpenCV, and Google Cloud Platform."
+      }
+    ],
+    "skills": [
+      {
+        "category": "Languages",
+        "icon": "fas fa-code",
+        "items": ["Python", "Java", "SQL", "TypeScript", "JavaScript"]
+      },
+      {
+        "category": "AI / ML",
+        "icon": "fas fa-brain",
+        "items": [
+          "Agentic AI",
+          "Multi-Agent Systems",
+          "RAG (Retrieval-Augmented Generation)",
+          "Knowledge Graphs",
+          "LLMs",
+          "Prompt Engineering",
+          "Google ADK",
+          "Gemini",
+          "Vector Embeddings",
+          "Semantic Search",
+          "Machine Learning",
+          "Deep Learning",
+          "Model Context Protocol (MCP)"
+        ]
+      },
+      {
+        "category": "Frameworks & Libraries",
+        "icon": "fas fa-cubes",
+        "items": ["Spring Boot", "Angular", "Flask", "PyTorch", "OpenCV", "React", "Streamlit", "Playwright"]
+      },
+      {
+        "category": "Cloud & Deployment",
+        "icon": "fas fa-cloud",
+        "items": ["Google Cloud Platform (GCP)", "Cloud SQL", "Render", "Netlify"]
+      },
+      {
+        "category": "Databases",
+        "icon": "fas fa-database",
+        "items": ["Pinecone (Vector DB)", "PostgreSQL", "MySQL", "Supabase"]
+      },
+      {
+        "category": "Testing & Enterprise Integration",
+        "icon": "fas fa-plug",
+        "items": [
+          "Test Automation",
+          "QA Automation",
+          "CI/CD",
+          "REST APIs",
+          "Jira",
+          "Xray",
+          "SAP ECC/S4HANA",
+          "SAP Hybris",
+          "Salesforce"
+        ]
+      },
+      {
+        "category": "Developer Tools",
+        "icon": "fas fa-tools",
+        "items": ["GitHub", "Git", "VS Code", "PyCharm", "Antigravity"]
+      }
+    ]
+  },
+  "socialMedia": {
+    "github": "https://github.com/Dronanaik",
+    "linkedin": "https://www.linkedin.com/in/drona-l",
+    "twitter": "https://x.com/drona_l",
+    "instagram": "https://www.instagram.com/spotter_naik/",
+    "facebook": "https://www.facebook.com/profile.php?id=61562739004984",
+    "email": "mailto:dronanaik1133@gmail.com",
+    "phone": "tel:+917022335552"
   },
   "experience": [
     {
-      "title": "Analyst",
+      "id": "kpmg-associate-consultant",
+      "title": "Associate Consultant – Agentic AI & RAG",
       "company": "KPMG",
-      "duration": "Aug 2025 – Present",
-      "description": "Currently working on an Agentic AI solution using the Google ADK Framework."
+      "location": "Bengaluru, India",
+      "duration": "Sep 2026 – Present",
+      "type": "Full-time",
+      "description": "Leading architecture and delivery of production multi-agent AI systems and enterprise RAG pipelines on Google Cloud Platform.",
+      "highlights": [
+        "Design and build production multi-agent AI systems with Google ADK and Gemini models on Google Cloud Platform to automate enterprise QA and test orchestration.",
+        "Architect RAG and agentic retrieval pipelines, covering document ingestion, deduplication, embeddings and vector storage, to ground LLM answers in enterprise knowledge.",
+        "Integrate AI agents with SAP ECC/S4HANA, SAP Hybris, Salesforce, Jira and Xray to automate test design, execution tracking and reporting across enterprise landscapes.",
+        "Engineer and tune prompts and agent instructions for enterprise-grade QA pipelines, working closely with QA leads and stakeholders to deliver reliable, production-ready solutions."
+      ],
+      "skills": ["Google ADK", "Gemini", "Agentic RAG", "GCP", "SAP ECC/S4HANA", "SAP Hybris", "Salesforce", "Jira & Xray", "Prompt Engineering"]
     },
     {
-      "title": "Tech Consulting Intern",
+      "id": "kpmg-analyst",
+      "title": "Analyst – Agentic AI & Test Automation",
       "company": "KPMG",
+      "location": "Bengaluru, India",
+      "duration": "Aug 2025 – Aug 2026",
+      "type": "Full-time",
+      "description": "Architected multi-agent test automation workflows and inter-agent communication protocols using Google ADK and Gemini.",
+      "highlights": [
+        "Architected and delivered multi-agent AI solutions for test automation using the Google Agent Development Kit (ADK) and Gemini, reducing manual testing effort by streamlining end-to-end test orchestration.",
+        "Designed inter-agent communication protocols for multi-agent systems, improving pipeline throughput and reducing handoff latency across agent boundaries.",
+        "Led prompt engineering initiatives to generate human-readable, enterprise-grade test cases via LLMs, cutting test authoring time significantly.",
+        "Collaborated with QA leads to integrate GenAI tooling into existing CI/CD pipelines, increasing automation coverage across test cycles."
+      ],
+      "skills": ["Google ADK", "Gemini", "Multi-Agent Systems", "Test Automation", "MCP", "CI/CD", "Prompt Engineering"]
+    },
+    {
+      "id": "kpmg-intern",
+      "title": "Consulting Intern – Generative AI & Test Automation",
+      "company": "KPMG",
+      "location": "Bengaluru, India",
       "duration": "Jan 2025 – Jul 2025",
-      "description": "Completed Java full‑stack training and contributed to client projects. Learned Java, Angular, SQL, TypeScript, Git, and GitHub."
+      "type": "Internship",
+      "description": "Contributed to LLM-powered test case generation tooling and completed intensive Java Full-Stack engineering delivery.",
+      "highlights": [
+        "Contributed to a GenAI solution that automated test case generation for enterprise software, reducing manual test authoring effort through LLM-powered generation.",
+        "Applied prompt engineering and few-shot techniques to improve test case accuracy and readability across heterogeneous enterprise application domains.",
+        "Built and integrated GenAI tooling into existing testing pipelines, improving test coverage scalability for large-scale deployments.",
+        "Completed intensive Java Full Stack training (Spring Boot, Angular, MySQL), directly applied in full-stack project delivery within the same internship period."
+      ],
+      "skills": ["Generative AI", "Few-Shot Prompting", "Java", "Spring Boot", "Angular", "MySQL", "TypeScript", "Git"]
     }
   ],
+  "projects": {
+    "major": [
+      {
+        "id": "agentic-rag-kg",
+        "name": "Agentic RAG with Knowledge Graph",
+        "subtitle": "Citation-Backed Document Q&A & Interactive Graph Explorer",
+        "featured": true,
+        "description": "An end-to-end agentic Retrieval-Augmented Generation (RAG) platform built with Google ADK and Pinecone that ingests documents, answers queries with grounded source citations, and visualizes extracted entity-relationship Knowledge Graphs.",
+        "highlights": [
+          "Built an agentic RAG system with Google ADK that ingests user-provided documents, runs the full RAG pipeline and answers user queries with source citations.",
+          "Used Pinecone as the vector database for embedding storage and semantic retrieval, enabling accurate, grounded answers over uploaded documents.",
+          "Generated and visualized an interactive Knowledge Graph of entities and relationships extracted from documents, helping users explore content beyond Q&A.",
+          "Deployed the backend on Render and the frontend on Netlify, delivering a live, end-to-end AI web application."
+        ],
+        "techStack": ["Python", "Google ADK", "Pinecone", "Knowledge Graphs", "Render", "Netlify"],
+        "githubLink": "https://github.com/Dronanaik/adk_rag"
+      },
+      {
+        "id": "ai-powered-medikit",
+        "name": "AI-Powered MediKit",
+        "subtitle": "Multi-Modal Deep Learning Medical Assistant",
+        "featured": true,
+        "description": "A multi-modal healthcare assistant combining Vision Transformer (ViT) for medical image diagnosis, MFCC audio analysis for heartbeat classification, and a text-similarity clinical chatbot.",
+        "highlights": [
+          "Built a multi-modal medical assistant combining Vision Transformer (ViT) for image diagnosis, MFCC for heartbeat analysis, and a text-similarity chatbot—demonstrating end-to-end deep learning system design.",
+          "Implemented few-shot tablet classification and herbal remedy search, enabling robust diagnosis under low-data constraints typical of rural telehealth scenarios.",
+          "Proposed YOLO-based real-time diagnosis and GenAI-powered medical bots as scalable extensions, with a hardware roadmap for vital-sign monitoring."
+        ],
+        "techStack": ["Python", "PyTorch", "Vision Transformer (ViT)", "OpenCV", "MFCC Audio", "Pygame", "Pillow"],
+        "githubLink": "https://github.com/Dronanaik/ai_programs"
+      },
+      {
+        "id": "appointment-booking-system",
+        "name": "Appointment Booking System",
+        "subtitle": "Full-Stack Healthcare Scheduling Platform",
+        "featured": true,
+        "description": "A role-based full-stack hospital appointment booking platform with dynamic scheduling logic, live doctor slot availability, and post-appointment review workflows.",
+        "highlights": [
+          "Developed a full-stack booking platform enabling patients to select hospitals, departments, and doctor time slots, with live availability management and a post-appointment review workflow.",
+          "Designed a Spring Boot REST API backend with dynamic scheduling logic and an Angular SPA frontend, delivering a responsive, role-based user experience."
+        ],
+        "techStack": ["Java", "Spring Boot", "Angular", "MySQL", "REST APIs", "TypeScript"],
+        "githubLink": "https://github.com/Dronanaik/angular"
+      },
+      {
+        "id": "google-adk-suite",
+        "name": "Google ADK Multi-Agent Suite",
+        "subtitle": "Enterprise Tool-Augmented Agents & MCP Integrations",
+        "featured": true,
+        "description": "A comprehensive suite of intelligent, tool-augmented agents built using Google's Agent Development Kit (ADK), integrating browser automation, financial analytics, web crawling, and MCP servers.",
+        "highlights": [
+          "Developed autonomous Playwright Browser Automation Agents, Financial MCP Agents, Crawl4AI Web Extraction Agents, and Streamlit Code-Generation Agents.",
+          "Implemented custom Model Context Protocol (MCP) adapters enabling seamless communication between Gemini-powered ADK agents and external services."
+        ],
+        "techStack": ["Google ADK", "Python", "TypeScript", "MCP", "Playwright", "Gemini"],
+        "githubLink": "https://github.com/Dronanaik/google-adk"
+      },
+      {
+        "id": "cms-voice-agent",
+        "name": "CMS Voice Agent",
+        "subtitle": "Conversational Voice-Driven AI Agent",
+        "featured": false,
+        "description": "Real-time voice-enabled AI agent designed to streamline content management workflows and interactive voice-driven task execution.",
+        "highlights": [
+          "Engineered low-latency voice interaction pipelines connecting speech recognition, agentic reasoning, and synthesized responses for hands-free operations."
+        ],
+        "techStack": ["Python", "Voice AI", "Agentic AI", "LLM"],
+        "githubLink": "https://github.com/Dronanaik/cms-voice-agent"
+      },
+      {
+        "id": "dominance-classifier",
+        "name": "Dominance Pattern Classifier",
+        "subtitle": "Interactive Genetic Inheritance ML Web App",
+        "featured": false,
+        "description": "A React-based Machine Learning application that classifies genetic inheritance patterns (Complete, Incomplete, and Codominance) using a custom-built Decision Tree algorithm.",
+        "highlights": [
+          "Features synthetic dataset generation, real-time in-browser model training, interactive phenotype/genotype predictions, and Recharts visualizations."
+        ],
+        "techStack": ["React 18", "Tailwind CSS", "Recharts", "Lucide React", "Decision Tree ML"],
+        "githubLink": "https://github.com/Dronanaik/dominance-classifier"
+      },
+      {
+        "id": "coco-farm-tracker",
+        "name": "Coconut Grove (Coco)",
+        "subtitle": "Bilingual Plantation & Harvest Expense Tracker",
+        "featured": false,
+        "description": "A lightweight agricultural tracker to document coconut plantation progress through a photo gallery and manage harvest expenses with full English and Kannada localization.",
+        "highlights": [
+          "Designed an intuitive mobile-friendly interface supporting bilingual switching (English & Kannada) for accessible farm record management."
+        ],
+        "techStack": ["JavaScript", "HTML5", "CSS3", "i18n (English & Kannada)"],
+        "githubLink": "https://github.com/Dronanaik/coco"
+      }
+    ],
+    "mini": [
+      {
+        "name": "Playwright Automation Agent",
+        "description": "End-to-end browser automation agent built with Playwright and Google ADK for intelligent UI testing and workflow execution.",
+        "techStack": ["Playwright", "TypeScript", "Google ADK"],
+        "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/PlaywrightAgent"
+      },
+      {
+        "name": "Financial MCP Agent",
+        "description": "Specialized ADK agent designed for financial data workflows and real-time market analysis via MCP connectors.",
+        "techStack": ["Python", "Finance", "MCP", "ADK"],
+        "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/financial-mcp-agent"
+      },
+      {
+        "name": "Streamlit Code-Gen Agent",
+        "description": "Interactive Streamlit workspace powered by Google ADK agents that generates, refactors, and explains application code.",
+        "techStack": ["Streamlit", "Python", "Google ADK"],
+        "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/Streamlit-Code-Gen-agent"
+      },
+      {
+        "name": "Crawl4AI Web Extraction Agent",
+        "description": "Autonomous web crawling agent that extracts, cleans, and structures web data for downstream LLM and RAG tasks.",
+        "techStack": ["Python", "Crawl4AI", "Google ADK"],
+        "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/crawl4AI-agent"
+      },
+      {
+        "name": "Job Search & Matching Agent",
+        "description": "Agentic workflow to automate job discovery, requirement parsing, and candidate-to-role matching.",
+        "techStack": ["Python", "NLP", "Google ADK"],
+        "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/job_search_agent"
+      },
+      {
+        "name": "Custom MCP Server Creation",
+        "description": "Reference implementations and custom tools built on the Model Context Protocol (MCP) specification in Python.",
+        "techStack": ["Python", "MCP", "Tooling"],
+        "githubLink": "https://github.com/Dronanaik/mcp-creation"
+      },
+      {
+        "name": "Java Backend Architecture",
+        "description": "Enterprise Java backend modules implementing clean Controller, Service, ServiceImpl, and Repository layers.",
+        "techStack": ["Java", "Spring Boot", "REST API"],
+        "githubLink": "https://github.com/Dronanaik/java-backend"
+      },
+      {
+        "name": "Digital Image Processing Suite",
+        "description": "Comprehensive collection of computer vision and image processing algorithms implemented from scratch and with OpenCV.",
+        "techStack": ["Python", "OpenCV", "NumPy"],
+        "githubLink": "https://github.com/Dronanaik/digital-image-processing-programs"
+      },
+      {
+        "name": "Machine Learning Notebooks",
+        "description": "Supervised and unsupervised machine learning experiments, feature engineering pipelines, and evaluation benchmarks.",
+        "techStack": ["Python", "scikit-learn", "Jupyter"],
+        "githubLink": "https://github.com/Dronanaik/ml-programs"
+      },
+      {
+        "name": "Streamlit ML Utilities",
+        "description": "Standalone Streamlit web applications and interactive dashboards for rapid ML model prototyping.",
+        "techStack": ["Streamlit", "Python"],
+        "githubLink": "https://github.com/Dronanaik/streamlit-app"
+      },
+      {
+        "name": "Trip Memories Gallery",
+        "description": "Curated, responsive visual gallery showcasing travel photography and trip stories with smooth CSS layouts.",
+        "techStack": ["HTML5", "CSS3", "Responsive Design"],
+        "githubLink": "https://github.com/Dronanaik/trip-gallery"
+      }
+    ]
+  },
+  "blogsIndex": "./blogs/index.json",
   "education": [
     {
-      "institution": "University Of Visvesvaraya College Of Engineering",
+      "institution": "University of Visvesvaraya College of Engineering (UVCE)",
       "degree": "B.Tech in Artificial Intelligence and Machine Learning",
-      "cgpa": "8.75",
+      "scoreLabel": "CGPA",
+      "score": "8.7 / 10 (8.75)",
       "duration": "Jan 2021 – Aug 2025",
-      "location": "Bengaluru, India"
+      "location": "Bengaluru, India",
+      "highlights": []
     },
     {
       "institution": "Akshara PU College",
-      "degree": "PUC - PCMB",
-      "percentage": "95.1%",
+      "degree": "Pre-University Course (PUC) — PCMB",
+      "scoreLabel": "Percentage",
+      "score": "95.1%",
       "duration": "Jun 2019 – Jul 2021",
-      "location": "Shikaripur, Karnataka"
+      "location": "Shikaripur, Karnataka",
+      "highlights": []
     }
   ],
-  "projects": [
-    {
-      "name": "Dominance Pattern Classifier",
-      "description": "A React-based Machine Learning application that classifies genetic inheritance patterns using a custom Decision Tree algorithm. The application can classify three types of dominance patterns",
-      "techStack": ["React 18", "Tailwind CSS", "Recharts","Lucide React","Decision Tree ML algorith"],
-      "githubLink": "https://github.com/Dronanaik/dominance-classifier"
-    },
-    {
-      "name": "Playwright Agent",
-      "description": "End-to-end browser automation agents built with Playwright and ADK for testing and automation.",
-      "techStack": ["Playwright", "TypeScript", "ADK"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/PlaywrightAgent"
-    },
-    {
-      "name": "Streamlit Code-Gen Agent",
-      "description": "A Streamlit app that provides code generation agents backed by Google ADK.",
-      "techStack": ["Streamlit", "Python", "ADK"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/Streamlit-Code-Gen-agent"
-    },
-    {
-      "name": "Crawl4AI Agent",
-      "description": "Web crawling agent to collect and prepare data for downstream AI tasks.",
-      "techStack": ["Python", "Scrapy/Requests", "ADK"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/crawl4AI-agent"
-    },
-    {
-      "name": "Financial MCP Agent",
-      "description": "Agent designed for financial data workflows and connectors (MCP integrations).",
-      "techStack": ["Python", "Finance", "MCP"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/financial-mcp-agent"
-    },
-    {
-      "name": "Job Search Agent",
-      "description": "Agent to automate job discovery and candidate-job matching workflows.",
-      "techStack": ["Python", "Scraping", "NLP"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/job_search_agent"
-    },
-    {
-      "name": "MCP Agent (ADK)",
-      "description": "A collection of agents and adapters built on top of Google ADK for MCP scenarios.",
-      "techStack": ["TypeScript", "ADK", "MCP"],
-      "githubLink": "https://github.com/Dronanaik/google-adk/tree/main/mcp-agent-adk"
-    },
-    {
-      "name": "Streamlit App",
-      "description": "Standalone Streamlit utilities and demos showcasing ML and data apps.",
-      "techStack": ["Streamlit", "Python"],
-      "githubLink": "https://github.com/Dronanaik/streamlit-app"
-    },
-    {
-      "name": "Angular Projects",
-      "description": "Angular demo apps and templates used during full-stack training.",
-      "techStack": ["Angular", "Java"],
-      "githubLink": "https://github.com/Dronanaik/angular"
-    },
-    {
-      "name": "ML Programs",
-      "description": "Machine learning experiments, notebooks, and training scripts.",
-      "techStack": ["Python", "scikit-learn", "TensorFlow/PyTorch"],
-      "githubLink": "https://github.com/Dronanaik/ml-programs"
-    },
-    {
-      "name": "Digital Image Processing",
-      "description": "Image processing algorithms and projects implemented for coursework and demos.",
-      "techStack": ["Python", "OpenCV", "NumPy"],
-      "githubLink": "https://github.com/Dronanaik/digital-image-processing-programs"
-    },
-    {
-      "name": "AI Programs",
-      "description": "Various AI utilities, scripts, and toy projects exploring models and agents.",
-      "techStack": ["Python", "AI"],
-      "githubLink": "https://github.com/Dronanaik/ai_programs"
-    },
-    {
-      "name": "Java Backend",
-      "description": "Various Java backend projects,including Controller,Repository,Services and Service Implementation Layers",
-      "techStack": ["Java"],
-      "githubLink": "https://github.com/Dronanaik/java-backend"
-    }
-  ],
-  "socialMedia": {
-    "linkedin": "https://www.linkedin.com/in/drona-l",
-    "github": "https://github.com/Dronanaik",
-    "instagram": "https://www.instagram.com/spotter_naik/",
-    "twitter": "https://x.com/drona_l"
-  }
+  "certificationsEmbedFile": "./certifications/embeds.html"
 }
-

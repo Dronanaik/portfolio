@@ -2,466 +2,1437 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Drona's Portfolio - Full-stack Developer specializing in AI, ML, and Agentic AI">
-    <title>Drona's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Drona L — Associate Consultant (Agentic AI & RAG) at KPMG. Portfolio featuring Multi-Agent Systems, Google ADK, RAG, Knowledge Graphs, and Full-Stack Engineering." />
+  <title>Drona L — Portfolio | Associate Consultant – Agentic AI & RAG</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Minimal Mistakes Layout Stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+  <!-- ========================================================================
+       Top Masthead Navigation (Minimal Mistakes .masthead)
+       ======================================================================== -->
+  <header class="masthead">
+    <div class="masthead__inner-wrap">
+      <a href="#about" class="site-title" id="site-title-link">
+        <span id="masthead-name">Drona L</span>
+        <span class="site-title__badge">Agentic AI &amp; RAG</span>
+      </a>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <h2>Drona</h2>
+      <nav class="greedy-nav" aria-label="Primary Navigation">
+        <ul class="visible-links" id="nav-links">
+          <li class="masthead__menu-item"><a href="#about" data-section="about" class="active">About</a></li>
+          <li class="masthead__menu-item"><a href="#experience" data-section="experience">Experience</a></li>
+          <li class="masthead__menu-item"><a href="#projects" data-section="projects">Projects</a></li>
+          <li class="masthead__menu-item"><a href="#blogs" data-section="blogs">Blogs</a></li>
+          <li class="masthead__menu-item"><a href="#cv" data-section="cv">CV</a></li>
+          <li class="masthead__menu-item"><a href="#education" data-section="education">Education</a></li>
+          <li class="masthead__menu-item"><a href="#certifications" data-section="certifications">Certifications</a></li>
+        </ul>
+
+        <div class="masthead__actions">
+          <button class="icon-btn" id="search-toggle" title="Search Portfolio (Ctrl+K)" aria-label="Open Search">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="icon-btn" id="theme-toggle" title="Toggle Contrast / Dark Skin" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Main 3-Column Minimal Mistakes Layout (#main)
+       ======================================================================== -->
+  <div id="main" role="main">
+    <!-- Left Sidebar: Persistent Author Profile (author_profile: true) -->
+    <aside class="sidebar" aria-label="Author Profile">
+      <div class="author__avatar">
+        <img id="author-avatar" src="./assets/profile.webp" alt="Drona L" />
+      </div>
+
+      <div class="author__content">
+        <h3 class="author__name" id="author-name">Drona L</h3>
+        <div class="author__role" id="author-role">Associate Consultant @ KPMG</div>
+        <p class="author__bio" id="author-bio"></p>
+      </div>
+
+      <div class="author__urls-wrapper">
+        <button class="btn--follow" id="follow-toggle" aria-expanded="false">
+          <i class="fas fa-user-plus"></i> Follow
+        </button>
+        <ul class="author__urls" id="author-urls">
+          <!-- Populated dynamically from metadata.json -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Center Column: Active Page Layout (single / archive / grid) -->
+    <article class="page" id="page-article">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol id="breadcrumbs-list">
+          <li><a href="#about">Home</a></li>
+          <li class="sep">/</li>
+          <li class="current" id="breadcrumb-current">About</li>
+        </ol>
+      </nav>
+
+      <header class="page__header">
+        <h1 class="page__title" id="page-title">About Me</h1>
+        <p class="page__lead" id="page-lead"></p>
+      </header>
+
+      <section class="page__content" id="page-content">
+        <!-- Active view rendered dynamically -->
+      </section>
+    </article>
+
+    <!-- Right Sidebar: Sticky Table of Contents (toc: true) -->
+    <aside class="sidebar__right" id="toc-sidebar" aria-label="On This Page">
+      <nav class="toc">
+        <h4 class="nav__title">
+          <i class="fas fa-file-alt"></i> On This Page
+        </h4>
+        <ul class="toc__menu" id="toc-menu">
+          <!-- Populated dynamically based on h2/h3 in #page-content -->
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- ========================================================================
+       Instant Search Modal (Minimal Mistakes layout: search)
+       ======================================================================== -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Search Portfolio">
+    <div class="search-modal__box">
+      <div class="search-modal__header">
+        <i class="fas fa-search" style="color: var(--text-muted)"></i>
+        <input type="text" class="search-modal__input" id="search-input"
+          placeholder="Search experience, projects, blogs, skills, or certifications..." autocomplete="off" />
+        <button class="icon-btn" id="search-close" aria-label="Close Search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="search-modal__results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Footer (Minimal Mistakes .page__footer)
+       ======================================================================== -->
+  <footer class="page__footer">
+    <div class="page__footer-inner">
+      <div>
+        <strong>Drona L</strong> &middot; Associate Consultant – Agentic AI &amp; RAG @ KPMG &middot;
+        <span>&copy; 2026 All rights reserved.</span>
+      </div>
+      <ul class="page__footer-follow" id="footer-links">
+        <!-- Populated dynamically -->
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Application Logic (Minimal Mistakes Router, Renderer, TOC & Search)
+       ======================================================================== -->
+  <script>
+    let portfolioData = null;
+    let activeSection = 'about';
+    let activeBlogId = null;
+    let activeProjectFilter = 'All';
+    let activeBlogCategory = 'All';
+    let blogSearchQuery = '';
+    let currentBlogPage = 1;
+    const BLOGS_PER_PAGE = 5;
+    const blogMarkdownCache = {};
+    let cvDisplayMode = 'digital'; // 'digital' or 'pdf'
+
+    const SECTION_META = {
+      about: {
+        title: 'About Me',
+        lead: 'Associate Consultant & AI Engineer specializing in Agentic AI, Multi-Agent Systems, RAG, and Full-Stack Development.'
+      },
+      experience: {
+        title: 'Professional Experience',
+        lead: 'Building production-ready Agentic AI, RAG pipelines, and enterprise test automation solutions at KPMG.'
+      },
+      projects: {
+        title: 'Projects Archive',
+        lead: 'Featured Major Projects and specialized Mini Projects across Agentic AI, Google ADK, RAG, Deep Learning, and Full-Stack Web.'
+      },
+      blogs: {
+        title: 'Technical Blogs & Articles',
+        lead: 'Deep dives on Google ADK, Citation-Backed RAG, Knowledge Graphs, MCP Servers, and Enterprise QA Orchestration.'
+      },
+      cv: {
+        title: 'Curriculum Vitae (Digital & PDF)',
+        lead: 'View my complete interactive digital resume below, print a formatted copy, or download the original PDF.'
+      },
+      education: {
+        title: 'Education',
+        lead: 'Academic background in Artificial Intelligence & Machine Learning.'
+      },
+      certifications: {
+        title: 'Certifications & Specializations',
+        lead: 'Professional training and credentials across Cloud AI, Full-Stack Engineering, and Enterprise Automation.'
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      initTheme();
+      initMobileToggles();
+      initSearchModal();
+
+      try {
+        const res = await fetch('./metadata.json');
+        portfolioData = await res.json();
+
+        // Load standalone blogs index from blogs/index.json
+        try {
+          const blogsUrl = portfolioData.blogsIndex || './blogs/index.json';
+          const blogsRes = await fetch(blogsUrl);
+          portfolioData.blogs = blogsRes.ok ? await blogsRes.json() : [];
+        } catch (blogErr) {
+          console.warn('Could not load blogs/index.json:', blogErr);
+          portfolioData.blogs = portfolioData.blogs || [];
+        }
+
+        renderAuthorSidebar(portfolioData.about, portfolioData.socialMedia, portfolioData.site);
+        renderFooterLinks(portfolioData.socialMedia);
+        handleRouteChange();
+        window.addEventListener('hashchange', handleRouteChange);
+      } catch (err) {
+        console.error('Failed to load metadata.json:', err);
+        document.getElementById('page-content').innerHTML =
+          '<p>Unable to load portfolio data. Please check metadata.json.</p>';
+      }
+    });
+
+    /* ========================================================================
+       Author Profile Sidebar & Social Media Tags
+       ======================================================================== */
+    function renderAuthorSidebar(about, social, site) {
+      document.getElementById('masthead-name').textContent = about.name;
+      document.getElementById('author-name').textContent = about.name;
+      document.getElementById('author-role').textContent = about.headline || about.title;
+      document.getElementById('author-bio').textContent = about.shortBio || about.description;
+
+      const avatar = document.getElementById('author-avatar');
+      avatar.src = about.profilePhoto;
+      avatar.onerror = () => {
+        avatar.src = about.profilePhotoFallback || './assets/profile.png';
+      };
+
+      const urlsList = document.getElementById('author-urls');
+      const items = [
+        { icon: 'fas fa-fw fa-map-marker-alt', label: about.location, url: null },
+        { icon: 'fas fa-fw fa-building', label: about.company, url: null },
+        { divider: true },
+        { icon: 'fas fa-fw fa-envelope', label: 'Email', url: social.email || `mailto:${about.email}` },
+        { icon: 'fas fa-fw fa-phone', label: about.phone, url: social.phone || `tel:${about.phone}` },
+        { icon: 'fab fa-fw fa-github', label: 'GitHub', url: social.github },
+        { icon: 'fab fa-fw fa-linkedin', label: 'LinkedIn', url: social.linkedin },
+        { icon: 'fab fa-fw fa-x-twitter', label: 'X (Twitter)', url: social.twitter },
+        { icon: 'fab fa-fw fa-instagram', label: 'Instagram', url: social.instagram },
+        { icon: 'fab fa-fw fa-facebook', label: 'Facebook', url: social.facebook },
+        { divider: true },
+        {
+          icon: 'fas fa-fw fa-file-pdf',
+          label: 'Download CV (PDF)',
+          url: (site && site.resumePdf) || './assets/Drona_L_Resume.pdf',
+          download: 'Drona_L_Resume.pdf'
+        }
+      ];
+
+      urlsList.innerHTML = items
+        .map(item => {
+          if (item.divider) {
+            return '<li class="author__urls-divider" role="separator"></li>';
+          }
+          if (!item.url) {
+            return `<li><i class="${item.icon}"></i><span>${item.label}</span></li>`;
+          }
+          const isExternal = item.url.startsWith('http');
+          const attrs = isExternal
+            ? 'target="_blank" rel="noopener noreferrer"'
+            : item.download
+            ? `download="${item.download}"`
+            : '';
+          return `
+            <li>
+              <a href="${item.url}" ${attrs}>
+                <i class="${item.icon}"></i>
+                <span>${item.label}</span>
+              </a>
+            </li>
+          `;
+        })
+        .join('');
+    }
+
+    function renderFooterLinks(social) {
+      const footerLinks = document.getElementById('footer-links');
+      const links = [
+        { label: 'GitHub', icon: 'fab fa-github', url: social.github },
+        { label: 'LinkedIn', icon: 'fab fa-linkedin', url: social.linkedin },
+        { label: 'X / Twitter', icon: 'fab fa-x-twitter', url: social.twitter },
+        { label: 'Instagram', icon: 'fab fa-instagram', url: social.instagram },
+        { label: 'Email', icon: 'fas fa-envelope', url: social.email }
+      ];
+      footerLinks.innerHTML = links
+        .filter(l => l.url)
+        .map(
+          l =>
+            `<li><a href="${l.url}" target="_blank" rel="noopener noreferrer"><i class="${l.icon}"></i> ${l.label}</a></li>`
+        )
+        .join('');
+    }
+
+    /* ========================================================================
+       Hash Router & Section Dispatcher
+       ======================================================================== */
+    function handleRouteChange() {
+      if (!portfolioData) return;
+      const rawHash = window.location.hash.replace(/^#\/?/, '') || 'about';
+
+      // Support #blogs/slug or #projects/major-projects
+      if (rawHash.startsWith('blogs/')) {
+        activeSection = 'blogs';
+        activeBlogId = rawHash.split('/')[1];
+      } else if (rawHash === 'major-projects' || rawHash === 'mini-projects') {
+        activeSection = 'projects';
+        activeBlogId = null;
+        setTimeout(() => {
+          const target = document.getElementById(rawHash);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, 60);
+      } else if (SECTION_META[rawHash]) {
+        activeSection = rawHash;
+        activeBlogId = null;
+      } else {
+        activeSection = 'about';
+        activeBlogId = null;
+      }
+
+      // Update active state in Masthead Nav
+      document.querySelectorAll('#nav-links a').forEach(link => {
+        link.classList.toggle('active', link.dataset.section === activeSection);
+      });
+
+      // Close mobile nav if open
+      document.getElementById('nav-links').classList.remove('open');
+
+      renderActiveSection();
+      if (rawHash !== 'major-projects' && rawHash !== 'mini-projects') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function renderActiveSection() {
+      const meta = SECTION_META[activeSection] || SECTION_META.about;
+      document.getElementById('breadcrumb-current').textContent = meta.title;
+      document.getElementById('page-title').textContent = meta.title;
+      document.getElementById('page-lead').textContent = meta.lead;
+
+      const container = document.getElementById('page-content');
+
+      switch (activeSection) {
+        case 'about':
+          renderAboutView(container);
+          break;
+        case 'experience':
+          renderExperienceView(container);
+          break;
+        case 'projects':
+          renderProjectsView(container);
+          break;
+        case 'blogs':
+          renderBlogsView(container);
+          break;
+        case 'cv':
+          renderCVView(container);
+          break;
+        case 'education':
+          renderEducationView(container);
+          break;
+        case 'certifications':
+          renderCertificationsView(container);
+          break;
+        default:
+          renderAboutView(container);
+      }
+
+      buildTableOfContents();
+    }
+
+    /* ========================================================================
+       1) ABOUT VIEW (layout: single)
+       ======================================================================== */
+    function renderAboutView(container) {
+      const { about, experience } = portfolioData;
+      const latestRole = experience[0];
+
+      const focusCardsHTML = (about.focusAreas || [])
+        .map(
+          area => `
+          <div class="feature-card">
+            <h3 class="feature-card__title" data-toc-skip="true">
+              <i class="${area.icon}"></i> ${area.title}
+            </h3>
+            <p>${area.description}</p>
+          </div>
+        `
+        )
+        .join('');
+
+      const skillsHTML = (about.skills || [])
+        .map(
+          group => `
+          <div class="skill-group">
+            <div class="skill-group__header">
+              <i class="${group.icon}"></i> ${group.category}
             </div>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-            </ul>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
+            <div class="tag-list">
+              ${group.items.map(s => `<span class="page__taxonomy-item">${s}</span>`).join('')}
+            </div>
+          </div>
+        `
+        )
+        .join('');
+
+      container.innerHTML = `
+        <h2 id="professional-summary"><i class="fas fa-user-tie"></i> Professional Summary</h2>
+        <div class="notice--primary">
+          <strong>Current Role:</strong> ${latestRole.title} at <strong>${latestRole.company}</strong> (${latestRole.duration}) &mdash; ${about.location}
+        </div>
+        <p>${about.description}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.75rem;">
+          <a href="#experience" class="btn btn--primary"><i class="fas fa-briefcase"></i> View Experience</a>
+          <a href="#projects" class="btn"><i class="fas fa-folder-open"></i> Explore Projects</a>
+          <a href="#cv" class="btn"><i class="fas fa-id-card"></i> Interactive Digital CV</a>
+          <a href="${portfolioData.site.resumePdf}" download="Drona_L_Resume.pdf" class="btn">
+            <i class="fas fa-download"></i> Download Resume (PDF)
+          </a>
+        </div>
+
+        <h2 id="core-focus-areas"><i class="fas fa-compass"></i> What I Do</h2>
+        <div class="feature-grid">
+          ${focusCardsHTML}
+        </div>
+
+        <h2 id="technical-skills"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+        <div class="skills-matrix">
+          ${skillsHTML}
+        </div>
+      `;
+    }
+
+    /* ========================================================================
+       2) EXPERIENCE VIEW (layout: single)
+       ======================================================================== */
+    function renderExperienceView(container) {
+      const roles = portfolioData.experience || [];
+      container.innerHTML = `
+        <h2 id="kpmg-career-progression"><i class="fas fa-briefcase"></i> Career Progression at KPMG</h2>
+        <div class="experience-list">
+          ${roles
+            .map(
+              role => `
+            <div class="archive-card">
+              <div class="archive-card__header">
+                <div>
+                  <h3 class="archive-card__title" id="${role.id}">${role.title}</h3>
+                  <div class="archive-card__org">
+                    <i class="fas fa-building"></i> ${role.company} &middot; ${role.location}
+                  </div>
+                </div>
+                <span class="archive-card__meta">
+                  <i class="far fa-calendar-alt"></i> ${role.duration}
+                </span>
+              </div>
+              <ul class="archive-card__bullets">
+                ${(role.highlights || []).map(b => `<li>${b}</li>`).join('')}
+              </ul>
+              <div class="tag-list">
+                ${(role.skills || []).map(s => `<span class="page__taxonomy-item">${s}</span>`).join('')}
+              </div>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+      `;
+    }
+
+    /* ========================================================================
+       3) PROJECTS VIEW (Subsections: Major Projects & Mini Projects)
+       ======================================================================== */
+    function renderProjectsView(container) {
+      const majorProjects = portfolioData.projects.major || [];
+      const miniProjects = portfolioData.projects.mini || [];
+
+      const filterCategories = ['All', 'Google ADK & Agents', 'RAG & AI/ML', 'Full-Stack & Web'];
+
+      const matchesFilter = proj => {
+        if (activeProjectFilter === 'All') return true;
+        const text = `${proj.name} ${proj.description} ${(proj.techStack || []).join(' ')}`.toLowerCase();
+        if (activeProjectFilter === 'Google ADK & Agents') {
+          return text.includes('adk') || text.includes('agent') || text.includes('mcp');
+        }
+        if (activeProjectFilter === 'RAG & AI/ML') {
+          return (
+            text.includes('rag') ||
+            text.includes('pytorch') ||
+            text.includes('opencv') ||
+            text.includes('machine learning') ||
+            text.includes('scikit') ||
+            text.includes('decision tree')
+          );
+        }
+        if (activeProjectFilter === 'Full-Stack & Web') {
+          return (
+            text.includes('angular') ||
+            text.includes('spring') ||
+            text.includes('react') ||
+            text.includes('java') ||
+            text.includes('html') ||
+            text.includes('javascript')
+          );
+        }
+        return true;
+      };
+
+      const filteredMajor = majorProjects.filter(matchesFilter);
+      const filteredMini = miniProjects.filter(matchesFilter);
+
+      container.innerHTML = `
+        <div class="filter-bar" role="toolbar" aria-label="Filter Projects">
+          ${filterCategories
+            .map(
+              cat => `
+            <button class="filter-btn ${activeProjectFilter === cat ? 'active' : ''}" data-filter="${cat}">
+              ${cat}
             </button>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          `
+            )
+            .join('')}
         </div>
-    </nav>
 
-    <!-- Hero/About Section -->
-    <section id="about" class="about-section">
-        <canvas class="particle-canvas" id="particle-canvas"></canvas>
-        <div class="container">
-            <div class="about-content">
-                <div class="profile-image" data-scroll-reveal>
-                    <div class="profile-glow"></div>
-                    <img id="profile-photo" src="" alt="Drona" class="profile-img" loading="lazy">
+        <h2 id="major-projects">
+          <i class="fas fa-star"></i> Major Projects (${filteredMajor.length})
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          Flagship end-to-end systems featuring Agentic RAG, Multi-Modal Deep Learning, Multi-Agent Orchestration, and Full-Stack Architecture.
+        </p>
+        <div class="major-projects-list">
+          ${filteredMajor
+            .map(
+              proj => `
+            <div class="project-item--major">
+              <div class="project-item__top">
+                <div>
+                  <h3 id="proj-${proj.id}" style="margin: 0;">${proj.name}</h3>
+                  ${proj.subtitle ? `<div class="project-item__subtitle">${proj.subtitle}</div>` : ''}
                 </div>
-                <div class="about-text">
-                    <h1 class="name" id="name" data-scroll-reveal>Drona</h1>
-                    <h2 class="title" id="title" data-scroll-reveal>
-                        <span class="typing-text">Analyst</span>
-                        <span class="cursor">|</span>
-                    </h2>
-                    <p class="description" id="description" data-scroll-reveal></p>
-                    <div class="social-links" id="social-links" data-scroll-reveal>
-                        <!-- Social media links will be populated by JS -->
-                    </div>
+                <a href="${proj.githubLink}" target="_blank" rel="noopener noreferrer" class="btn">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+              <p style="font-size: 0.92rem; margin-bottom: 0.65rem;">${proj.description}</p>
+              ${
+                proj.highlights && proj.highlights.length
+                  ? `<ul class="archive-card__bullets">
+                      ${proj.highlights.map(h => `<li>${h}</li>`).join('')}
+                    </ul>`
+                  : ''
+              }
+              <div class="tag-list">
+                ${(proj.techStack || []).map(t => `<span class="page__taxonomy-item">${t}</span>`).join('')}
+              </div>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+
+        <h2 id="mini-projects">
+          <i class="fas fa-th-large"></i> Mini Projects &amp; Specialized Agents (${filteredMini.length})
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          Focused agent implementations, MCP servers, computer vision modules, and ML utilities.
+        </p>
+        <div class="entries-grid">
+          ${filteredMini
+            .map(
+              proj => `
+            <div class="grid__item">
+              <div>
+                <h3>${proj.name}</h3>
+                <p>${proj.description}</p>
+              </div>
+              <div>
+                <div class="tag-list" style="margin-bottom: 0.85rem;">
+                  ${(proj.techStack || []).map(t => `<span class="page__taxonomy-item">${t}</span>`).join('')}
                 </div>
+                <a href="${proj.githubLink}" target="_blank" rel="noopener noreferrer" class="btn" style="width: 100%; justify-content: center;">
+                  <i class="fab fa-github"></i> Source Code
+                </a>
+              </div>
             </div>
+          `
+            )
+            .join('')}
         </div>
-    </section>
+      `;
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-timeline" id="experience-list">
-                <!-- Experience items will be populated by JS -->
+      container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeProjectFilter = btn.dataset.filter;
+          renderProjectsView(container);
+          buildTableOfContents();
+        });
+      });
+    }
+
+    /* ========================================================================
+       4) BLOGS VIEW (Markdown Files in blogs/*.md + Filter, Search & Pagination)
+       ======================================================================== */
+    function stripFrontMatter(mdText) {
+      return mdText.replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n?/, '').trim();
+    }
+
+    function formatInlineMarkdown(text) {
+      return text
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    }
+
+    function parseMarkdownToHTML(md) {
+      const body = stripFrontMatter(md);
+      const lines = body.split(/\r?\n/);
+      const html = [];
+      let inCodeBlock = false;
+      let codeBuffer = [];
+      let listType = null; // 'ul' or 'ol'
+
+      const closeList = () => {
+        if (listType) {
+          html.push(`</${listType}>`);
+          listType = null;
+        }
+      };
+
+      for (let i = 0; i < lines.length; i++) {
+        const rawLine = lines[i];
+        const line = rawLine.trim();
+
+        // Fenced Code Blocks
+        if (line.startsWith('```')) {
+          closeList();
+          if (!inCodeBlock) {
+            inCodeBlock = true;
+            codeBuffer = [];
+          } else {
+            const escapedCode = codeBuffer
+              .join('\n')
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;');
+            html.push(`<pre><code>${escapedCode}</code></pre>`);
+            inCodeBlock = false;
+          }
+          continue;
+        }
+
+        if (inCodeBlock) {
+          codeBuffer.push(rawLine);
+          continue;
+        }
+
+        if (!line) {
+          closeList();
+          continue;
+        }
+
+        // Headings
+        if (line.startsWith('## ')) {
+          closeList();
+          const text = line.replace(/^##\s+/, '');
+          const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          html.push(`<h2 id="${slug}">${formatInlineMarkdown(text)}</h2>`);
+          continue;
+        }
+
+        if (line.startsWith('### ')) {
+          closeList();
+          const text = line.replace(/^###\s+/, '');
+          const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          html.push(`<h3 id="${slug}">${formatInlineMarkdown(text)}</h3>`);
+          continue;
+        }
+
+        // Blockquote
+        if (line.startsWith('> ')) {
+          closeList();
+          html.push(`<blockquote>${formatInlineMarkdown(line.replace(/^>\s+/, ''))}</blockquote>`);
+          continue;
+        }
+
+        // Unordered list
+        if (line.startsWith('- ') || line.startsWith('* ')) {
+          if (listType !== 'ul') {
+            closeList();
+            listType = 'ul';
+            html.push('<ul class="archive-card__bullets">');
+          }
+          html.push(`<li>${formatInlineMarkdown(line.replace(/^[-*]\s+/, ''))}</li>`);
+          continue;
+        }
+
+        // Ordered list
+        if (/^\d+\.\s+/.test(line)) {
+          if (listType !== 'ol') {
+            closeList();
+            listType = 'ol';
+            html.push('<ol class="archive-card__bullets">');
+          }
+          html.push(`<li>${formatInlineMarkdown(line.replace(/^\d+\.\s+/, ''))}</li>`);
+          continue;
+        }
+
+        closeList();
+        html.push(`<p>${formatInlineMarkdown(line)}</p>`);
+      }
+
+      closeList();
+      return html.join('\n');
+    }
+
+    async function renderBlogsView(container) {
+      const blogs = portfolioData.blogs || [];
+
+      // Single Article Reader View (#blogs/<id>)
+      if (activeBlogId) {
+        const post = blogs.find(b => b.id === activeBlogId);
+        if (post) {
+          document.getElementById('breadcrumb-current').textContent = post.title;
+          container.innerHTML = `
+            <div style="margin-bottom: 1.25rem;">
+              <a href="#blogs" class="btn"><i class="fas fa-arrow-left"></i> Back to All Blogs</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid" id="projects-list">
-                <!-- Project cards will be populated by JS -->
+            <div class="blog-article-view">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> ${post.displayDate || post.date}</span>
+                <span><i class="far fa-clock"></i> ${post.readTime}</span>
+                <span class="page__taxonomy-item">${post.category}</span>
+              </div>
+              <h2 id="article-overview" style="margin-top: 0.4rem;">${post.title}</h2>
+              <div id="markdown-article-body" style="margin-top: 1.1rem;">
+                <p style="color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Loading article...</p>
+              </div>
+              <div class="tag-list" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                ${(post.tags || []).map(t => `<span class="page__taxonomy-item">#${t}</span>`).join('')}
+              </div>
             </div>
-        </div>
-    </section>
+          `;
 
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-timeline" id="education-list">
-                <!-- Education items will be populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Drona. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>// Fetch metadata and render portfolio
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch('../metadata.json');
-                const data = await response.json();
-
-                // Render About Section
-                renderAbout(data.about);
-
-                // Render Social Media Links
-                renderSocialLinks(data.socialMedia);
-
-                // Render Experience
-                renderExperience(data.experience);
-
-                // Render Projects
-                renderProjects(data.projects);
-
-                // Render Education
-                renderEducation(data.education);
-
-                // Setup Navigation
-                setupNavigation();
-
-                // Initialize theme
-                initializeTheme();
-
-                // Initialize particle animation
-                initializeParticles();
-
-                // Initialize scroll animations
-                initializeScrollAnimations();
-
-                // Initialize typing animation
-                initializeTypingAnimation();
-
-                // Initialize scroll progress
-                initializeScrollProgress();
-
-            } catch (error) {
-                console.error('Error fetching metadata:', error);
+          try {
+            let mdText = blogMarkdownCache[post.id];
+            if (!mdText && post.file) {
+              const mdRes = await fetch(post.file);
+              if (mdRes.ok) {
+                mdText = await mdRes.text();
+                blogMarkdownCache[post.id] = mdText;
+              }
             }
+            const bodyEl = document.getElementById('markdown-article-body');
+            if (bodyEl) {
+              bodyEl.innerHTML = mdText
+                ? parseMarkdownToHTML(mdText)
+                : `<p>${post.summary || ''}</p>`;
+              buildTableOfContents();
+            }
+          } catch (err) {
+            console.error('Error loading blog markdown:', err);
+          }
+          return;
+        }
+      }
+
+      // Archive View with Category Filter, Search & Pagination
+      const categories = ['All', ...new Set(blogs.map(b => b.category).filter(Boolean))];
+
+      const filteredBlogs = blogs.filter(post => {
+        const matchesCat = activeBlogCategory === 'All' || post.category === activeBlogCategory;
+        const q = blogSearchQuery.toLowerCase();
+        const matchesQuery =
+          !q ||
+          post.title.toLowerCase().includes(q) ||
+          (post.summary || '').toLowerCase().includes(q) ||
+          (post.tags || []).some(t => t.toLowerCase().includes(q));
+        return matchesCat && matchesQuery;
+      });
+
+      const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / BLOGS_PER_PAGE));
+      if (currentBlogPage > totalPages) currentBlogPage = 1;
+      const startIdx = (currentBlogPage - 1) * BLOGS_PER_PAGE;
+      const paginatedBlogs = filteredBlogs.slice(startIdx, startIdx + BLOGS_PER_PAGE);
+
+      container.innerHTML = `
+        <div class="blog-toolbar">
+          <div class="filter-bar" style="margin-bottom: 0;">
+            ${categories
+              .map(
+                cat => `
+              <button class="filter-btn blog-cat-btn ${activeBlogCategory === cat ? 'active' : ''}" data-cat="${cat}">
+                ${cat}
+              </button>
+            `
+              )
+              .join('')}
+          </div>
+          <input
+            type="search"
+            id="blog-inline-search"
+            class="blog-search-input"
+            placeholder="Filter blogs by topic or tag..."
+            value="${blogSearchQuery.replace(/"/g, '&quot;')}"
+          />
+        </div>
+
+        <h2 id="latest-articles">
+          <i class="fas fa-pen-nib"></i> Articles (${filteredBlogs.length})
+        </h2>
+
+        <div class="blog-list">
+          ${
+            paginatedBlogs.length
+              ? paginatedBlogs
+                  .map(post => {
+                    const targetHref = post.externalUrl ? post.externalUrl : `#blogs/${post.id}`;
+                    const targetAttrs = post.externalUrl ? 'target="_blank" rel="noopener noreferrer"' : '';
+                    return `
+                  <div class="archive-card">
+                    <div class="blog-meta">
+                      <span><i class="far fa-calendar-alt"></i> ${post.displayDate || post.date}</span>
+                      <span><i class="far fa-clock"></i> ${post.readTime}</span>
+                      <span class="page__taxonomy-item">${post.category}</span>
+                    </div>
+                    <h3 id="blog-${post.id}" style="margin-top: 0; margin-bottom: 0.45rem;">
+                      <a href="${targetHref}" ${targetAttrs}>${post.title}</a>
+                    </h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.9rem;">
+                      ${post.summary}
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+                      <div class="tag-list">
+                        ${(post.tags || []).map(t => `<span class="page__taxonomy-item">${t}</span>`).join('')}
+                      </div>
+                      <a href="${targetHref}" ${targetAttrs} class="btn btn--primary">
+                        ${post.externalUrl ? 'Read External <i class="fas fa-external-link-alt"></i>' : 'Read Article <i class="fas fa-arrow-right"></i>'}
+                      </a>
+                    </div>
+                  </div>
+                `;
+                  })
+                  .join('')
+              : '<p style="color: var(--text-muted);">No blog posts match your filter.</p>'
+          }
+        </div>
+
+        ${
+          totalPages > 1
+            ? `
+          <div class="pagination" role="navigation" aria-label="Blog Pagination">
+            <button class="btn blog-page-btn" data-page="${currentBlogPage - 1}" ${currentBlogPage === 1 ? 'disabled' : ''}>
+              &laquo; Prev
+            </button>
+            <span style="font-size: 0.85rem; color: var(--text-muted); padding: 0 0.5rem;">
+              Page ${currentBlogPage} of ${totalPages}
+            </span>
+            <button class="btn blog-page-btn" data-page="${currentBlogPage + 1}" ${currentBlogPage === totalPages ? 'disabled' : ''}>
+              Next &raquo;
+            </button>
+          </div>
+        `
+            : ''
+        }
+      `;
+
+      container.querySelectorAll('.blog-cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeBlogCategory = btn.dataset.cat;
+          currentBlogPage = 1;
+          renderBlogsView(container);
+          buildTableOfContents();
+        });
+      });
+
+      const inlineSearch = document.getElementById('blog-inline-search');
+      if (inlineSearch) {
+        inlineSearch.addEventListener('input', e => {
+          blogSearchQuery = e.target.value;
+          currentBlogPage = 1;
+          renderBlogsView(container);
+          const inputEl = document.getElementById('blog-inline-search');
+          if (inputEl) {
+            inputEl.focus();
+            inputEl.setSelectionRange(inputEl.value.length, inputEl.value.length);
+          }
+          buildTableOfContents();
+        });
+      }
+
+      container.querySelectorAll('.blog-page-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const p = parseInt(btn.dataset.page, 10);
+          if (p >= 1 && p <= totalPages) {
+            currentBlogPage = p;
+            renderBlogsView(container);
+            buildTableOfContents();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
+    /* ========================================================================
+       5) CV VIEW (Digital Interactive CV + Original PDF Viewer & Download)
+       ======================================================================== */
+    function renderCVView(container) {
+      const { about, experience, projects, education, site } = portfolioData;
+      const resumeProjects = projects.major.slice(0, 3);
+      const pdfUrl = (site && site.resumePdf) || './assets/Drona_L_Resume.pdf';
+
+      container.innerHTML = `
+        <div class="cv-toolbar">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button class="btn ${cvDisplayMode === 'digital' ? 'btn--primary' : ''}" id="btn-cv-digital">
+              <i class="fas fa-file-alt"></i> Digital CV View
+            </button>
+            <button class="btn ${cvDisplayMode === 'pdf' ? 'btn--primary' : ''}" id="btn-cv-pdf">
+              <i class="fas fa-file-pdf"></i> Embedded PDF Preview
+            </button>
+          </div>
+          <div class="cv-toolbar__actions">
+            <button class="btn" id="btn-cv-print">
+              <i class="fas fa-print"></i> Print / Save as PDF
+            </button>
+            <a href="${pdfUrl}" download="Drona_L_Resume.pdf" class="btn btn--primary">
+              <i class="fas fa-download"></i> Download CV (PDF)
+            </a>
+          </div>
+        </div>
+
+        ${
+          cvDisplayMode === 'pdf'
+            ? `
+          <div id="cv-pdf-container">
+            <h2 id="pdf-resume-preview"><i class="fas fa-file-pdf"></i> Original Resume PDF</h2>
+            <iframe src="${pdfUrl}" class="cv-pdf-frame" title="Drona L Resume PDF"></iframe>
+          </div>
+        `
+            : `
+          <div class="digital-cv-sheet" id="digital-cv">
+            <!-- Header -->
+            <div class="cv-header">
+              <div class="cv-header__name">${about.name.toUpperCase()}</div>
+              <div class="cv-header__contact">
+                <span><i class="fas fa-map-marker-alt"></i> ${about.location}</span>
+                <span>&middot;</span>
+                <a href="tel:${about.phone}"><i class="fas fa-phone"></i> ${about.phone}</a>
+                <span>&middot;</span>
+                <a href="mailto:${about.email}"><i class="fas fa-envelope"></i> ${about.email}</a>
+                <span>&middot;</span>
+                <a href="${portfolioData.socialMedia.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
+                <span>&middot;</span>
+                <a href="${portfolioData.socialMedia.github}" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="cv-section">
+              <h2 class="cv-section__title" id="cv-summary">Professional Summary</h2>
+              <p style="font-size: 0.9rem; margin-bottom: 0;">${about.description}</p>
+            </div>
+
+            <!-- Experience -->
+            <div class="cv-section">
+              <h2 class="cv-section__title" id="cv-experience">Experience</h2>
+              ${experience
+                .map(
+                  exp => `
+                <div class="cv-entry">
+                  <div class="cv-entry__row">
+                    <div class="cv-entry__title">
+                      ${exp.title} <span style="color: var(--text-light);">|</span>
+                      <span class="cv-entry__org">${exp.company}</span>
+                    </div>
+                    <div class="cv-entry__date">${exp.duration}</div>
+                  </div>
+                  <ul>
+                    ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
+                  </ul>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+
+            <!-- Key Projects -->
+            <div class="cv-section">
+              <h2 class="cv-section__title" id="cv-projects">Projects</h2>
+              ${resumeProjects
+                .map(
+                  proj => `
+                <div class="cv-entry">
+                  <div class="cv-entry__row">
+                    <div class="cv-entry__title">
+                      ${proj.name} <span style="color: var(--text-light);">|</span>
+                      <span style="font-weight: 500; font-style: italic; color: var(--text-muted); font-size: 0.86rem;">
+                        ${proj.techStack.join(', ')}
+                      </span>
+                    </div>
+                    <a href="${proj.githubLink}" target="_blank" rel="noopener" style="font-size: 0.8rem;">
+                      <i class="fab fa-github"></i> Repository
+                    </a>
+                  </div>
+                  <ul>
+                    ${(proj.highlights || [proj.description]).map(h => `<li>${h}</li>`).join('')}
+                  </ul>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="cv-section">
+              <h2 class="cv-section__title" id="cv-skills">Technical Skills</h2>
+              <div class="cv-skills-list">
+                ${about.skills
+                  .map(
+                    g => `
+                  <div>
+                    <strong>${g.category}:</strong>
+                    <span style="color: var(--text-muted);">${g.items.join(', ')}</span>
+                  </div>
+                `
+                  )
+                  .join('')}
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="cv-section" style="margin-bottom: 0;">
+              <h2 class="cv-section__title" id="cv-education">Education</h2>
+              ${education
+                .map(
+                  edu => `
+                <div class="cv-entry" style="margin-bottom: 0.65rem;">
+                  <div class="cv-entry__row">
+                    <div class="cv-entry__title">${edu.institution}</div>
+                    <div class="cv-entry__date">${edu.duration}</div>
+                  </div>
+                  <div class="cv-entry__row" style="font-size: 0.88rem;">
+                    <div>
+                      ${edu.degree} &mdash;
+                      <strong style="color: var(--primary-color);">${edu.scoreLabel}: ${edu.score}</strong>
+                    </div>
+                    <div style="color: var(--text-muted); font-style: italic;">${edu.location}</div>
+                  </div>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        `
+        }
+      `;
+
+      document.getElementById('btn-cv-digital').addEventListener('click', () => {
+        cvDisplayMode = 'digital';
+        renderCVView(container);
+        buildTableOfContents();
+      });
+
+      document.getElementById('btn-cv-pdf').addEventListener('click', () => {
+        cvDisplayMode = 'pdf';
+        renderCVView(container);
+        buildTableOfContents();
+      });
+
+      document.getElementById('btn-cv-print').addEventListener('click', () => {
+        if (cvDisplayMode !== 'digital') {
+          cvDisplayMode = 'digital';
+          renderCVView(container);
+        }
+        window.print();
+      });
+    }
+
+    /* ========================================================================
+       6) EDUCATION VIEW (layout: single)
+       ======================================================================== */
+    function renderEducationView(container) {
+      const education = portfolioData.education || [];
+      container.innerHTML = `
+        <h2 id="academic-degrees"><i class="fas fa-graduation-cap"></i> Academic Qualifications</h2>
+        <div class="experience-list">
+          ${education
+            .map(
+              (edu, idx) => `
+            <div class="archive-card">
+              <div class="archive-card__header">
+                <div>
+                  <h3 class="archive-card__title" id="edu-${idx}">${edu.institution}</h3>
+                  <div class="archive-card__org">${edu.degree}</div>
+                </div>
+                <span class="archive-card__meta">
+                  <i class="far fa-calendar-alt"></i> ${edu.duration}
+                </span>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0.6rem 0; font-size: 0.9rem;">
+                <span class="page__taxonomy-item" style="font-weight: 700; color: var(--primary-color);">
+                  <i class="fas fa-award" style="margin-right: 0.35rem;"></i> ${edu.scoreLabel}: ${edu.score}
+                </span>
+                <span style="color: var(--text-muted);">
+                  <i class="fas fa-map-marker-alt"></i> ${edu.location}
+                </span>
+              </div>
+              ${
+                edu.highlights && edu.highlights.length
+                  ? `<ul class="archive-card__bullets">
+                      ${edu.highlights.map(h => `<li>${h}</li>`).join('')}
+                    </ul>`
+                  : ''
+              }
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+      `;
+    }
+
+    /* ========================================================================
+       7) CERTIFICATIONS VIEW (Simple HTML / Badge Embed Loader)
+       ======================================================================== */
+    async function renderCertificationsView(container) {
+      container.innerHTML = `
+        <h2 id="professional-certifications"><i class="fas fa-certificate"></i> Certifications</h2>
+        <div class="cert-embed-grid" id="cert-embed-container">
+          <p style="color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Loading certifications...</p>
+        </div>
+      `;
+
+      const embedBox = document.getElementById('cert-embed-container');
+      try {
+        const embedUrl = portfolioData.certificationsEmbedFile || './certifications/embeds.html';
+        const res = await fetch(embedUrl, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Failed to load embeds.html');
+        let rawHtml = await res.text();
+
+        // Normalize protocol-relative URLs (e.g. //cdn.credly.com -> https://cdn.credly.com)
+        rawHtml = rawHtml.replace(/src=(["'])\/\//g, 'src=$1https://');
+
+        embedBox.innerHTML = rawHtml;
+
+        // Auto-wrap any bare Credly badge divs or iframes that aren't already inside .cert-embed-card
+        embedBox.querySelectorAll('[data-share-badge-id], iframe').forEach(el => {
+          if (!el.closest('.cert-embed-card')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'cert-embed-card';
+            el.parentNode.insertBefore(wrapper, el);
+            wrapper.appendChild(el);
+          }
         });
 
-        // Render About Section
-        function renderAbout(about) {
-            document.getElementById('name').textContent = about.name;
-            const titleText = about.title;
-            document.querySelector('.typing-text').setAttribute('data-text', titleText);
-            document.getElementById('description').textContent = about.description;
-            const profileImg = document.getElementById('profile-photo');
-            // Use WebP optimized image
-            profileImg.src = about.profilePhoto.replace('.png', '.webp');
-            profileImg.onerror = function () {
-                // Fallback to PNG if WebP doesn't load
-                this.src = about.profilePhoto;
-            };
+        // Re-create and execute unique <script> tags so Credly / external badge scripts run once per render
+        const seenSrc = new Set();
+        const scripts = Array.from(embedBox.querySelectorAll('script'));
+        scripts.forEach(oldScript => {
+          const src = oldScript.getAttribute('src');
+          if (src) {
+            if (seenSrc.has(src)) {
+              oldScript.remove();
+              return;
+            }
+            seenSrc.add(src);
+          }
+          const newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+          });
+          if (oldScript.textContent) {
+            newScript.textContent = oldScript.textContent;
+          }
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        buildTableOfContents();
+      } catch (err) {
+        console.error('Error loading certification embeds:', err);
+        embedBox.innerHTML =
+          '<p style="color: var(--text-muted);">Paste your certificate embed codes in <code>certifications/embeds.html</code>.</p>';
+      }
+    }
+
+    /* ========================================================================
+       Right Sticky Table of Contents Builder (Minimal Mistakes toc: true)
+       ======================================================================== */
+    function buildTableOfContents() {
+      const tocMenu = document.getElementById('toc-menu');
+      const tocSidebar = document.getElementById('toc-sidebar');
+      const mainContainer = document.getElementById('main');
+      const headings = Array.from(
+        document.querySelectorAll('#page-content h2, #page-content h3:not([data-toc-skip="true"])')
+      );
+
+      if (headings.length === 0) {
+        tocSidebar.style.display = 'none';
+        mainContainer.classList.add('no-toc');
+        return;
+      }
+
+      tocSidebar.style.display = '';
+      mainContainer.classList.remove('no-toc');
+
+      tocMenu.innerHTML = headings
+        .map((h, i) => {
+          if (!h.id) {
+            h.id = `section-heading-${i}`;
+          }
+          const isH3 = h.tagName.toLowerCase() === 'h3';
+          return `
+            <li class="${isH3 ? 'toc-h3' : 'toc-h2'}">
+              <a href="#${h.id}" data-target="${h.id}">${h.textContent.trim()}</a>
+            </li>
+          `;
+        })
+        .join('');
+
+      tocMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const targetEl = document.getElementById(link.dataset.target);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            tocMenu.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Highlight first TOC item initially
+      const firstLink = tocMenu.querySelector('a');
+      if (firstLink) firstLink.classList.add('active');
+    }
+
+    window.addEventListener('scroll', () => {
+      const tocLinks = Array.from(document.querySelectorAll('#toc-menu a'));
+      if (!tocLinks.length) return;
+
+      let activeId = tocLinks[0].dataset.target;
+      for (const link of tocLinks) {
+        const el = document.getElementById(link.dataset.target);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 130) {
+            activeId = link.dataset.target;
+          }
+        }
+      }
+
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.target === activeId);
+      });
+    });
+
+    /* ========================================================================
+       Theme / Skin Switcher (Contrast Light <-> Dark Skin)
+       ======================================================================== */
+    function initTheme() {
+      const btn = document.getElementById('theme-toggle');
+      const saved = localStorage.getItem('mm_skin');
+      if (saved === 'dark') {
+        document.body.classList.add('dark-skin');
+        btn.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-skin');
+        const isDark = document.body.classList.contains('dark-skin');
+        btn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        localStorage.setItem('mm_skin', isDark ? 'dark' : 'contrast');
+      });
+    }
+
+    /* ========================================================================
+       Mobile Navigation & Author Follow Dropdown Toggles
+       ======================================================================== */
+    function initMobileToggles() {
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const followToggle = document.getElementById('follow-toggle');
+      const authorUrls = document.getElementById('author-urls');
+
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      followToggle.addEventListener('click', () => {
+        const isOpen = authorUrls.classList.toggle('open');
+        followToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    /* ========================================================================
+       Instant Search Modal (Minimal Mistakes Search Overlay)
+       ======================================================================== */
+    function initSearchModal() {
+      const modal = document.getElementById('search-modal');
+      const openBtn = document.getElementById('search-toggle');
+      const closeBtn = document.getElementById('search-close');
+      const input = document.getElementById('search-input');
+      const resultsBox = document.getElementById('search-results');
+
+      const openSearch = () => {
+        modal.classList.add('open');
+        input.value = '';
+        renderSearchResults('');
+        setTimeout(() => input.focus(), 50);
+      };
+
+      const closeSearch = () => {
+        modal.classList.remove('open');
+      };
+
+      openBtn.addEventListener('click', openSearch);
+      closeBtn.addEventListener('click', closeSearch);
+      modal.addEventListener('click', e => {
+        if (e.target === modal) closeSearch();
+      });
+
+      document.addEventListener('keydown', e => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          openSearch();
+        } else if (e.key === 'Escape' && modal.classList.contains('open')) {
+          closeSearch();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        renderSearchResults(input.value.trim().toLowerCase());
+      });
+
+      function renderSearchResults(query) {
+        if (!portfolioData) return;
+        const index = [];
+
+        portfolioData.experience.forEach(exp => {
+          index.push({
+            title: `${exp.title} — ${exp.company}`,
+            badge: 'Experience',
+            desc: exp.highlights[0],
+            hash: '#experience'
+          });
+        });
+
+        portfolioData.projects.major.forEach(p => {
+          index.push({
+            title: p.name,
+            badge: 'Major Project',
+            desc: `${p.description} (${p.techStack.join(', ')})`,
+            hash: '#major-projects'
+          });
+        });
+
+        portfolioData.projects.mini.forEach(p => {
+          index.push({
+            title: p.name,
+            badge: 'Mini Project',
+            desc: `${p.description} (${p.techStack.join(', ')})`,
+            hash: '#mini-projects'
+          });
+        });
+
+        (portfolioData.blogs || []).forEach(b => {
+          index.push({
+            title: b.title,
+            badge: 'Blog',
+            desc: b.summary,
+            hash: `#blogs/${b.id}`
+          });
+        });
+
+        index.push({
+          title: 'Certifications & Badges',
+          badge: 'Certifications',
+          desc: 'Embedded credentials and verification badges',
+          hash: '#certifications'
+        });
+
+        const matches = query
+          ? index.filter(
+              item =>
+                item.title.toLowerCase().includes(query) ||
+                item.desc.toLowerCase().includes(query) ||
+                item.badge.toLowerCase().includes(query)
+            )
+          : index.slice(0, 6);
+
+        if (!matches.length) {
+          resultsBox.innerHTML =
+            '<p style="padding: 1rem; color: var(--text-muted); margin: 0;">No matching results found.</p>';
+          return;
         }
 
-        // Render Social Media Links
-        function renderSocialLinks(socialMedia) {
-            const socialLinksContainer = document.getElementById('social-links');
-            socialLinksContainer.innerHTML = '';
-
-            const socialLinks = [
-                { name: 'LinkedIn', url: socialMedia.linkedin, icon: 'fab fa-linkedin' },
-                { name: 'GitHub', url: socialMedia.github, icon: 'fab fa-github' },
-                { name: 'Instagram', url: socialMedia.instagram, icon: 'fab fa-instagram' },
-                { name: 'Twitter', url: socialMedia.twitter, icon: 'fab fa-twitter' }
-            ];
-
-            socialLinks.forEach(link => {
-                const a = document.createElement('a');
-                a.href = link.url.startsWith('http') ? link.url : `https://${link.url}`;
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-                a.setAttribute('aria-label', link.name);
-
-                const i = document.createElement('i');
-                i.className = link.icon;
-
-                a.appendChild(i);
-                socialLinksContainer.appendChild(a);
-            });
-        }
-
-        // Render Experience Section
-        function renderExperience(experience) {
-            const experienceContainer = document.getElementById('experience-list');
-            experienceContainer.innerHTML = '';
-
-            experience.forEach(exp => {
-                const experienceItem = document.createElement('div');
-                experienceItem.className = 'experience-item';
-                experienceItem.setAttribute('data-scroll-reveal', '');
-
-                experienceItem.innerHTML = `
-            <h3>${exp.title}</h3>
-            <div class="company">${exp.company}</div>
-            <div class="duration">${exp.duration}</div>
-            <p class="description">${exp.description}</p>
-        `;
-
-                experienceContainer.appendChild(experienceItem);
-            });
-        }
-
-        // Render Projects Section
-        function renderProjects(projects) {
-            const projectsContainer = document.getElementById('projects-list');
-            projectsContainer.innerHTML = '';
-
-            projects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.className = 'project-card';
-                projectCard.setAttribute('data-scroll-reveal', '');
-
-                // Create tech stack tags
-                const techStackHTML = project.techStack.map(tech =>
-                    `<span class="tech-tag">${tech}</span>`
-                ).join('');
-
-                projectCard.innerHTML = `
-            <h3>${project.name}</h3>
-            <p class="description">${project.description}</p>
-            <div class="tech-stack">
-                ${techStackHTML}
+        resultsBox.innerHTML = matches
+          .map(
+            m => `
+          <a href="${m.hash}" class="search-result-item">
+            <div class="search-result-item__title">
+              <span>${m.title}</span>
+              <span class="search-result-item__badge">${m.badge}</span>
             </div>
-        `;
+            <p class="search-result-item__desc">${m.desc}</p>
+          </a>
+        `
+          )
+          .join('');
 
-                // Add click event to navigate to GitHub
-                projectCard.addEventListener('click', () => {
-                    window.open(project.githubLink, '_blank', 'noopener,noreferrer');
-                });
-
-                projectsContainer.appendChild(projectCard);
-            });
-        }
-
-        // Render Education Section
-        function renderEducation(education) {
-            const educationContainer = document.getElementById('education-list');
-            educationContainer.innerHTML = '';
-
-            education.forEach(edu => {
-                const educationItem = document.createElement('div');
-                educationItem.className = 'education-item';
-                educationItem.setAttribute('data-scroll-reveal', '');
-
-                const detailsHTML = [];
-                if (edu.cgpa) {
-                    detailsHTML.push(`CGPA: ${edu.cgpa}`);
-                }
-                if (edu.percentage) {
-                    detailsHTML.push(`Percentage: ${edu.percentage}`);
-                }
-
-                educationItem.innerHTML = `
-            <h3>${edu.institution}</h3>
-            <div class="degree">${edu.degree}</div>
-            ${detailsHTML.length > 0 ? `<div class="details">${detailsHTML.join(' · ')}</div>` : ''}
-            <div class="duration">${edu.duration}</div>
-            <div class="location">${edu.location}</div>
-        `;
-
-                educationContainer.appendChild(educationItem);
-            });
-        }
-
-        // Setup Navigation
-        function setupNavigation() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-
-            // Mobile menu toggle
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                });
-            }
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-
-                        // Close mobile menu if open
-                        if (navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                        }
-                    }
-                });
-            });
-
-            // Add active class to current section in navigation
-            window.addEventListener('scroll', () => {
-                let current = '';
-                const sections = document.querySelectorAll('section[id]');
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Initialize Theme Toggle
-        function initializeTheme() {
-            const themeToggle = document.getElementById('theme-toggle');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const savedTheme = localStorage.getItem('theme');
-
-            // Set initial theme
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-
-            // Toggle theme
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            });
-        }
-
-        // Initialize Particle Animation
-        function initializeParticles() {
-            const canvas = document.getElementById('particle-canvas');
-            if (!canvas) return;
-
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const particles = [];
-            const particleCount = 50;
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedX = Math.random() * 1 - 0.5;
-                    this.speedY = Math.random() * 1 - 0.5;
-                    this.opacity = Math.random() * 0.5 + 0.2;
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                }
-
-                draw() {
-                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(particle => {
-                    particle.update();
-                    particle.draw();
-                });
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-
-            window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            });
-        }
-
-        // Initialize Scroll Animations
-        function initializeScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        // Initialize Typing Animation
-        function initializeTypingAnimation() {
-            const typingElement = document.querySelector('.typing-text');
-            if (!typingElement) return;
-
-            const text = typingElement.getAttribute('data-text') || typingElement.textContent;
-            typingElement.textContent = '';
-            let index = 0;
-
-            function type() {
-                if (index < text.length) {
-                    typingElement.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(type, 100);
-                }
-            }
-
-            setTimeout(type, 500);
-        }
-
-        // Initialize Scroll Progress
-        function initializeScrollProgress() {
-            const progressBar = document.getElementById('scroll-progress');
-
-            window.addEventListener('scroll', () => {
-                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (window.scrollY / windowHeight) * 100;
-                progressBar.style.width = scrolled + '%';
-            });
-        }
-
-    </script>
+        resultsBox.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            closeSearch();
+          });
+        });
+      }
+    }
+  </script>
 </body>
 
 </html>
