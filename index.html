@@ -183,7 +183,7 @@
         lead: 'Featured Major Projects and specialized Mini Projects across Agentic AI, Google ADK, RAG, Deep Learning, and Full-Stack Web.'
       },
       blogs: {
-        title: 'Technical Blogs & Articles',
+        title: 'Blogs & Articles',
         lead: 'Deep dives on Google ADK, Citation-Backed RAG, Knowledge Graphs, MCP Servers, and Enterprise QA Orchestration.'
       },
       cv: {
@@ -827,7 +827,7 @@
         </div>
 
         <h2 id="latest-articles">
-          <i class="fas fa-pen-nib"></i> Published Articles (${filteredBlogs.length})
+          <i class="fas fa-pen-nib"></i> Drona's Reflection (${filteredBlogs.length})
         </h2>
 
         <div class="blog-list">
@@ -862,7 +862,7 @@
                         ${(post.tags || []).map(t => `<span class="page__taxonomy-item">#${t}</span>`).join('')}
                       </div>
                       <a href="${targetHref}" ${targetAttrs} class="btn btn--primary">
-                        ${post.externalUrl ? 'Read External <i class="fas fa-external-link-alt"></i>' : 'Read Full Article <i class="fas fa-arrow-right"></i>'}
+                        ${post.externalUrl ? 'Read External <i class="fas fa-external-link-alt"></i>' : 'Read Full Blog <i class="fas fa-arrow-right"></i>'}
                       </a>
                     </div>
                   </article>
